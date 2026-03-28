@@ -1,25 +1,44 @@
-/* Powerhouse Novelas - Sovereign Edition Aesthetic Tracker */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
+/* Powerhouse Novelas - Official Brand Aesthetic */
+/* Based on PHN Brand Guidelines (Boss Ladies Shared Drive) */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Pinyon+Script&display=swap');
 
 :root {
-  /* Crisp, Editorial Palette - The "Sovereign" Aesthetic */
-  --bg-deep: #ffffff;
-  --bg-card: #f9f9f9;
-  --border-subtle: #e5e5e5;
-  --border-default: #d1d1d1;
+  /* Official Core Colors from PHN Palette */
+  --color-black-plum: #141213;   /* R=20 G=18 B=19 */
+  --color-charcoal: #363636;     /* R=54 G=54 B=54 */
+  --color-deep-plum: #3A1C2E;    /* R=58 G=28 B=46 */
+  --color-brick-red: #8C2F39;    /* R=140 G=47 B=57 */
+  --color-mauve: #A58780;        /* ~R=165 G=135 B=128 */
+  --color-taupe: #B5A699;        /* R=181 G=166 B=153 */
+  --color-warm-grey: #C9C1B9;    /* R=201 G=193 B=185 */
+  --color-light-cream: #F5F2EE;  /* R=245 G=242 B=238 */
+  --color-cream: #E6E2DC;        /* R=230 G=226 B=220 */
+
+  /* Assignment */
+  --bg-deep: var(--color-black-plum);
+  --bg-card: var(--color-deep-plum);
+  --border-subtle: var(--color-charcoal);
+  --border-default: var(--color-mauve);
   
-  --text-primary: #111111;
-  --text-secondary: #333333;
-  --text-muted: #666666;
-  --text-dim: #999999;
+  --text-primary: var(--color-light-cream);
+  --text-secondary: var(--color-cream);
+  --text-muted: var(--color-warm-grey);
+  --text-dim: var(--color-taupe);
+  --text-accent: var(--color-mauve);
+
+  --accent-primary: var(--color-brick-red);
+
+  /* Typography matching PHN Typography Guide */
+  /* Main serif heading */
+  --font-display: "Playfair Display", serif; 
   
-  --crimson: #8C1C13;
-  --crimson-light: #A43B33;
+  /* Signature/Script heading fallback for 'Brittany' */
+  --font-script: "Pinyon Script", "Brittany", cursive; 
   
-  /* Typography */
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-reading: "Cormorant Garamond", Georgia, serif;
-  --font-ui: "Inter", -apple-system, sans-serif;
+  /* Sub-heading and body */
+  --font-ui: "DM Sans", sans-serif;
+  --font-reading: "DM Sans", sans-serif; 
   
   --nav-height: 80px;
   --reading-width: 680px;
@@ -34,10 +53,10 @@
 }
 
 body {
-  font-family: var(--font-ui);
+  font-family: var(--font-reading);
   background-color: var(--bg-deep);
   color: var(--text-primary);
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -45,15 +64,22 @@ body {
 /* Typography Utils */
 h1, h2, h3, h4, .display {
   font-family: var(--font-display);
-  font-weight: 600;
-  line-height: 1.2;
+  font-weight: 400;
+  line-height: 1.15;
   color: var(--text-primary);
+}
+
+.script-accent {
+  font-family: var(--font-script);
+  font-size: 2em;
+  color: var(--color-taupe);
+  font-weight: normal;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.2s var(--ease-out);
+  transition: color 0.3s var(--ease-out);
 }
 
 /* Nav */
@@ -67,20 +93,15 @@ a {
   justify-content: space-between;
   padding: 0 max(2rem, 5vw);
   z-index: 100;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid transparent;
+  background: var(--bg-deep);
+  border-bottom: 1px solid var(--border-subtle);
   transition: all 0.3s var(--ease-out);
-}
-.nav--scrolled {
-  border-bottom-color: var(--border-subtle);
-  height: 70px;
 }
 .nav__brand {
   font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: 1.6rem;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
 }
 .nav__links {
   display: flex;
@@ -88,93 +109,18 @@ a {
   list-style: none;
 }
 .nav__link {
-  font-size: 0.85rem;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
   color: var(--text-muted);
 }
 .nav__link:hover, .nav__link--active {
   color: var(--text-primary);
 }
 
-/* Layout */
-.section {
-  padding: 8rem max(2rem, 5vw) 6rem;
-}
-.section__inner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Hero */
-.hero {
-  min-height: 90vh;
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid var(--border-subtle);
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(circle at right top, rgba(0,0,0,0.03) 0%, transparent 60%);
-  z-index: 1;
-  pointer-events: none;
-}
-.hero__content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-.hero__eyebrow {
-  font-family: var(--font-ui);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-bottom: 1.5rem;
-}
-.hero__title {
-  font-size: clamp(3rem, 8vw, 5.5rem);
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  margin-bottom: 2rem;
-  font-style: italic;
-}
-.hero__subtitle {
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  color: var(--text-secondary);
-  line-height: 1.6;
-  max-width: 600px;
-  margin: 0 auto 3rem;
-  font-family: var(--font-display);
-}
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 2rem;
-  background: var(--text-primary);
-  color: #fff;
-  font-weight: 500;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border: 1px solid var(--text-primary);
-  transition: all 0.3s ease;
-}
-.btn:hover {
-  background: #fff;
-  color: var(--text-primary);
-}
-
-/* Manifesto Page Structure */
+/* Grid/Layout */
 .manifesto-page {
   display: grid;
   grid-template-columns: 240px 1fr;
@@ -184,49 +130,100 @@ a {
   padding: 4rem max(2rem, 5vw);
 }
 
-/* Essays */
+/* Essays Header */
 .essays-header {
-  border-bottom: 1px solid var(--text-primary);
-  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 3rem;
   margin-bottom: 4rem;
 }
-.essays-header__title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-style: italic;
-  font-weight: 400;
+.essays-header__eyebrow {
+  font-family: var(--font-script);
+  font-size: 2.5rem;
+  color: var(--color-brick-red);
+  margin-bottom: 0.5rem;
 }
+.essays-header__title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+}
+.essays-header__subtitle {
+  font-family: var(--font-ui);
+  font-size: 1.1rem;
+  color: var(--text-taupe);
+  max-width: 600px;
+}
+
+/* The Essays */
 .essay {
   margin-bottom: 6rem;
 }
 .essay__number {
-  font-family: var(--font-ui);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: var(--color-brick-red);
+  opacity: 0.8;
   margin-bottom: 1rem;
 }
 .essay__title {
-  font-size: 2rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
   margin-bottom: 2rem;
+  color: var(--color-light-cream);
 }
 .essay__body p {
   font-family: var(--font-reading);
-  font-size: 1.25rem;
-  line-height: 1.9;
-  color: var(--text-primary);
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--color-cream);
+  font-weight: 300;
   margin-bottom: 1.5rem;
 }
 .essay__body p:first-of-type::first-letter {
-  font-size: 3.5rem;
+  font-family: var(--font-display);
+  font-size: 4rem;
   float: left;
   line-height: 0.8;
-  padding-right: 0.5rem;
-  color: var(--text-primary);
-  font-family: var(--font-display);
+  padding-right: 0.6rem;
+  padding-top: 0.2rem;
+  color: var(--color-mauve);
 }
 
-/* Cards (Library) */
+/* Table of Contents */
+.toc {
+  position: sticky;
+  top: calc(var(--nav-height) + 2rem);
+}
+.toc__heading {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-brick-red);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.toc__link {
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--color-taupe);
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+  transition: all 0.3s;
+}
+.toc__link:hover {
+  color: var(--color-light-cream);
+}
+.toc__link--active {
+  color: var(--color-brick-red);
+  font-weight: 700;
+}
+
+/* Series Cards */
 .series-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -234,65 +231,110 @@ a {
 }
 .series-card {
   padding: 3rem;
-  background: #fff;
-  border: 1px solid var(--border-default);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--bg-card); /* Deep plum */
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 .series-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border-color: var(--color-mauve);
 }
 .series-card__badge {
   display: inline-block;
-  font-size: 0.7rem;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 0.25rem 0.5rem;
-  background: var(--bg-card);
-  color: var(--text-secondary);
+  letter-spacing: 0.15em;
+  padding: 0.4rem 0.8rem;
+  background: var(--color-black-plum);
+  color: var(--color-warm-grey);
+  border-radius: 2px;
   margin-bottom: 1.5rem;
 }
 .series-card__title {
-  font-size: 1.8rem;
-  font-style: italic;
+  font-family: var(--font-display);
+  font-size: 2rem;
   margin-bottom: 1rem;
+  color: var(--color-light-cream);
 }
 .series-card__excerpt {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
   font-family: var(--font-reading);
-  line-height: 1.6;
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--color-warm-grey);
   margin-bottom: 2rem;
+  line-height: 1.7;
+}
+.series-card__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--color-taupe);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1.5rem;
+}
+.series-card__read-more {
+  color: var(--color-brick-red);
+  font-weight: 600;
 }
 
-/* Global Grid Layouts */
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+/* Sections */
+.section {
+  padding: 6rem max(2rem, 5vw);
+}
+.section__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section__eyebrow {
+  font-family: var(--font-script);
+  font-size: 2.5rem;
+  color: var(--color-brick-red);
+  margin-bottom: 0.5rem;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .manifesto-page, .grid-2 {
-    grid-template-columns: 1fr;
-  }
-}
-
+/* Footer */
 .footer {
   padding: 4rem max(2rem, 5vw);
   border-top: 1px solid var(--border-subtle);
-  background: #fff;
   text-align: center;
-  font-family: var(--font-ui);
+  background: var(--color-black-plum);
 }
 .footer__brand {
   font-family: var(--font-display);
   font-size: 1.5rem;
+  color: var(--color-taupe);
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+.footer__links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  margin-bottom: 2rem;
+}
+.footer__link {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-warm-grey);
 }
 .footer__copy {
-  color: var(--text-muted);
-  font-size: 0.8rem;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--color-charcoal);
+}
+
+@media (max-width: 900px) {
+  .manifesto-page {
+    grid-template-columns: 1fr;
+  }
 }
