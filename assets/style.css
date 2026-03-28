@@ -1,44 +1,30 @@
-/* Powerhouse Novelas - Official Brand Aesthetic */
-/* Based on PHN Brand Guidelines (Boss Ladies Shared Drive) */
+/* Powerhouse Novelas - Sovereign Private Chamber Aesthetic */
+/* Strictly Dark, Cinematic, Leather & Marble Vibe. NO RED. */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Pinyon+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
-  /* Official Core Colors from PHN Palette */
-  --color-black-plum: #141213;   /* R=20 G=18 B=19 */
-  --color-charcoal: #363636;     /* R=54 G=54 B=54 */
-  --color-deep-plum: #3A1C2E;    /* R=58 G=28 B=46 */
-  --color-brick-red: #8C2F39;    /* R=140 G=47 B=57 */
-  --color-mauve: #A58780;        /* ~R=165 G=135 B=128 */
-  --color-taupe: #B5A699;        /* R=181 G=166 B=153 */
-  --color-warm-grey: #C9C1B9;    /* R=201 G=193 B=185 */
-  --color-light-cream: #F5F2EE;  /* R=245 G=242 B=238 */
-  --color-cream: #E6E2DC;        /* R=230 G=226 B=220 */
-
-  /* Assignment */
-  --bg-deep: var(--color-black-plum);
-  --bg-card: var(--color-deep-plum);
-  --border-subtle: var(--color-charcoal);
-  --border-default: var(--color-mauve);
+  /* Core Colors */
+  --color-absolute-black: #050505;
+  --color-deep-charcoal: #121212;
+  --color-slate-leather: #1A1A1C;
+  --color-border-dim: #2A2A2C;
+  --color-border-light: #3D3D40;
   
-  --text-primary: var(--color-light-cream);
-  --text-secondary: var(--color-cream);
-  --text-muted: var(--color-warm-grey);
-  --text-dim: var(--color-taupe);
-  --text-accent: var(--color-mauve);
+  --text-primary: #FFFFFF;
+  --text-secondary: #E0E0E0;
+  --text-muted: #9E9E9E;
+  --text-dim: #707070;
 
-  --accent-primary: var(--color-brick-red);
+  /* Warm Ambient Light Accent (Candlelight/Brass) - NO RED */
+  --accent-amber: #D4AF37;       /* Classic Gold */
+  --accent-amber-dim: #8B732A;   /* Muted Brass */
+  --accent-warmth: rgba(212, 175, 55, 0.15); /* Ambient glow */
 
-  /* Typography matching PHN Typography Guide */
-  /* Main serif heading */
-  --font-display: "Playfair Display", serif; 
-  
-  /* Signature/Script heading fallback for 'Brittany' */
-  --font-script: "Pinyon Script", "Brittany", cursive; 
-  
-  /* Sub-heading and body */
-  --font-ui: "DM Sans", sans-serif;
-  --font-reading: "DM Sans", sans-serif; 
+  /* Typography */
+  --font-display: "Lora", Georgia, serif; 
+  --font-reading: "Spectral", "Cormorant Garamond", serif; 
+  --font-ui: "Inter", -apple-system, sans-serif;
   
   --nav-height: 80px;
   --reading-width: 680px;
@@ -54,7 +40,7 @@
 
 body {
   font-family: var(--font-reading);
-  background-color: var(--bg-deep);
+  background-color: var(--color-absolute-black);
   color: var(--text-primary);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
@@ -67,13 +53,7 @@ h1, h2, h3, h4, .display {
   font-weight: 400;
   line-height: 1.15;
   color: var(--text-primary);
-}
-
-.script-accent {
-  font-family: var(--font-script);
-  font-size: 2em;
-  color: var(--color-taupe);
-  font-weight: normal;
+  letter-spacing: -0.01em;
 }
 
 a {
@@ -93,15 +73,17 @@ a {
   justify-content: space-between;
   padding: 0 max(2rem, 5vw);
   z-index: 100;
-  background: var(--bg-deep);
-  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(5, 5, 5, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border-dim);
   transition: all 0.3s var(--ease-out);
 }
 .nav__brand {
   font-family: var(--font-display);
-  font-size: 1.6rem;
-  letter-spacing: 0.02em;
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
   color: var(--text-primary);
+  text-transform: uppercase;
 }
 .nav__links {
   display: flex;
@@ -110,7 +92,7 @@ a {
 }
 .nav__link {
   font-family: var(--font-ui);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -118,6 +100,59 @@ a {
 }
 .nav__link:hover, .nav__link--active {
   color: var(--text-primary);
+}
+
+/* Hero Section */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-absolute-black);
+  background-image: url('hero-banner.png'); /* Actual image will be loaded here */
+  background-size: cover;
+  background-position: center;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(5,5,5,0.7) 0%, rgba(5,5,5,0.95) 100%);
+  z-index: 1;
+}
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 2rem;
+}
+.hero__eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--accent-amber);
+  margin-bottom: 1.5rem;
+}
+.hero__title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+  text-shadow: 0 4px 12px rgba(0,0,0,0.8);
+}
+.hero__subtitle {
+  font-family: var(--font-reading);
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* Grid/Layout */
@@ -132,15 +167,17 @@ a {
 
 /* Essays Header */
 .essays-header {
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--color-border-dim);
   padding-bottom: 3rem;
   margin-bottom: 4rem;
 }
 .essays-header__eyebrow {
-  font-family: var(--font-script);
-  font-size: 2.5rem;
-  color: var(--color-brick-red);
-  margin-bottom: 0.5rem;
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  color: var(--accent-amber);
+  margin-bottom: 1.5rem;
 }
 .essays-header__title {
   font-size: clamp(2.5rem, 6vw, 4rem);
@@ -151,8 +188,9 @@ a {
 .essays-header__subtitle {
   font-family: var(--font-ui);
   font-size: 1.1rem;
-  color: var(--text-taupe);
+  color: var(--text-muted);
   max-width: 600px;
+  line-height: 1.6;
 }
 
 /* The Essays */
@@ -162,22 +200,21 @@ a {
 .essay__number {
   font-family: var(--font-display);
   font-size: 2.5rem;
-  font-weight: 400;
-  color: var(--color-brick-red);
-  opacity: 0.8;
+  font-weight: 300;
+  color: var(--color-border-light);
   margin-bottom: 1rem;
 }
 .essay__title {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   margin-bottom: 2rem;
-  color: var(--color-light-cream);
+  color: var(--text-primary);
 }
 .essay__body p {
   font-family: var(--font-reading);
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   line-height: 1.8;
-  color: var(--color-cream);
+  color: var(--text-secondary);
   font-weight: 300;
   margin-bottom: 1.5rem;
 }
@@ -188,7 +225,7 @@ a {
   line-height: 0.8;
   padding-right: 0.6rem;
   padding-top: 0.2rem;
-  color: var(--color-mauve);
+  color: var(--text-primary);
 }
 
 /* Table of Contents */
@@ -198,29 +235,29 @@ a {
 }
 .toc__heading {
   font-family: var(--font-ui);
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--color-brick-red);
+  color: var(--text-dim);
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--color-border-dim);
 }
 .toc__link {
   display: block;
   font-family: var(--font-ui);
   font-size: 0.85rem;
-  color: var(--color-taupe);
+  color: var(--text-muted);
   margin-bottom: 0.75rem;
   line-height: 1.4;
   transition: all 0.3s;
 }
 .toc__link:hover {
-  color: var(--color-light-cream);
+  color: var(--text-primary);
 }
 .toc__link--active {
-  color: var(--color-brick-red);
-  font-weight: 700;
+  color: var(--accent-amber);
+  font-weight: 600;
 }
 
 /* Series Cards */
@@ -231,39 +268,39 @@ a {
 }
 .series-card {
   padding: 3rem;
-  background: var(--bg-card); /* Deep plum */
-  border: 1px solid var(--border-subtle);
-  border-radius: 4px;
+  background: var(--color-deep-charcoal);
+  border: 1px solid var(--color-border-dim);
+  border-radius: 2px;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 .series-card:hover {
   transform: translateY(-5px);
-  border-color: var(--color-mauve);
+  border-color: var(--color-border-light);
 }
 .series-card__badge {
   display: inline-block;
   font-family: var(--font-ui);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   padding: 0.4rem 0.8rem;
-  background: var(--color-black-plum);
-  color: var(--color-warm-grey);
-  border-radius: 2px;
+  background: var(--color-slate-leather);
+  color: var(--text-muted);
+  border: 1px solid var(--color-border-dim);
   margin-bottom: 1.5rem;
 }
 .series-card__title {
   font-family: var(--font-display);
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: var(--color-light-cream);
+  color: var(--text-primary);
 }
 .series-card__excerpt {
   font-family: var(--font-reading);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 300;
-  color: var(--color-warm-grey);
+  color: var(--text-secondary);
   margin-bottom: 2rem;
   line-height: 1.7;
 }
@@ -273,43 +310,51 @@ a {
   align-items: center;
   font-family: var(--font-ui);
   font-size: 0.75rem;
-  color: var(--color-taupe);
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--color-border-dim);
   padding-top: 1.5rem;
 }
 .series-card__read-more {
-  color: var(--color-brick-red);
+  color: var(--accent-amber);
   font-weight: 600;
 }
 
 /* Sections */
 .section {
   padding: 6rem max(2rem, 5vw);
+  background-color: var(--color-absolute-black);
 }
 .section__inner {
   max-width: 1200px;
   margin: 0 auto;
 }
+.section__header {
+  margin-bottom: 4rem;
+}
 .section__eyebrow {
-  font-family: var(--font-script);
-  font-size: 2.5rem;
-  color: var(--color-brick-red);
-  margin-bottom: 0.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--accent-amber);
+  margin-bottom: 1rem;
 }
 
 /* Footer */
 .footer {
   padding: 4rem max(2rem, 5vw);
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--color-border-dim);
   text-align: center;
-  background: var(--color-black-plum);
+  background: var(--color-deep-charcoal);
 }
 .footer__brand {
   font-family: var(--font-display);
-  font-size: 1.5rem;
-  color: var(--color-taupe);
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   display: block;
   margin-bottom: 1.5rem;
 }
@@ -322,15 +367,15 @@ a {
 }
 .footer__link {
   font-family: var(--font-ui);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-warm-grey);
+  color: var(--text-muted);
 }
 .footer__copy {
   font-family: var(--font-ui);
   font-size: 0.75rem;
-  color: var(--color-charcoal);
+  color: var(--text-dim);
 }
 
 @media (max-width: 900px) {
