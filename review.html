@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PHN Website Review — Three Directions</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#e0e0e0;overflow-x:hidden}
+
+/* === REVIEW NAV === */
+.rnav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,10,0.97);backdrop-filter:blur(20px);border-bottom:1px solid #222;padding:0.8rem 0;text-align:center}
+.rnav__title{font-family:'Lora',serif;font-size:0.7rem;letter-spacing:0.1em;color:#C9A84C;margin-bottom:0.6rem}
+.rnav__tabs{display:flex;justify-content:center;gap:0.4rem;flex-wrap:wrap}
+.rnav__tab{padding:0.5rem 1.4rem;background:transparent;color:#666;border:1px solid #2a2a2a;font-family:'Inter',sans-serif;font-size:0.62rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.2s}
+.rnav__tab:hover{border-color:#555;color:#aaa}
+.rnav__tab.active{background:#C9A84C;color:#0a0a0a;border-color:#C9A84C}
+.rnav__vibe{font-family:'Spectral',serif;font-size:0.72rem;color:#555;font-style:italic;margin-top:0.5rem}
+
+.site-frame{margin-top:90px}
+.site-version{display:none}
+.site-version.active{display:block}
+
+/* === SHARED UTILITIES === */
+.gold{color:#C9A84C}
+.serif{font-family:'Lora',Georgia,serif}
+.body-font{font-family:'Spectral',Georgia,serif}
+.ui-font{font-family:'Inter',sans-serif}
+.mono{font-family:'JetBrains Mono',monospace}
+
+/* =========================================
+   VERSION A — EDITORIAL NOIR
+   Asymmetric. List-driven. Literary journal.
+   ========================================= */
+.vA{background:#08080a;color:#e8e6df}
+
+/* A: Nav */
+.vA .sn{display:flex;justify-content:space-between;align-items:center;padding:1.5rem max(2rem,4vw);border-bottom:1px solid #18181c}
+.vA .sn__brand{font-family:'Lora',serif;font-size:1.05rem;letter-spacing:0.04em}
+.vA .sn__links{display:flex;gap:2rem;font-family:'Inter',sans-serif;font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:#6a6a6a}
+.vA .sn__links span:hover{color:#e8e6df}
+
+/* A: Hero */
+.vA .hero{display:grid;grid-template-columns:1fr 1fr;min-height:88vh}
+.vA .hero__L{display:flex;flex-direction:column;justify-content:flex-end;padding:5rem max(2rem,4vw);background:linear-gradient(180deg,#08080a,#0c0b0f)}
+.vA .hero__R{background:linear-gradient(135deg,#13111a 0%,#1a1520 40%,#0e0c10 100%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.vA .hero__R::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(201,168,76,0.05) 0%,transparent 60%)}
+.vA .hero__glyph{font-family:'Lora',serif;font-size:min(10rem,15vw);font-style:italic;opacity:0.035;line-height:1}
+.vA .hero__eyebrow{font-family:'Inter',sans-serif;font-size:0.56rem;letter-spacing:0.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:1.5rem}
+.vA .hero__title{font-family:'Lora',serif;font-size:clamp(2.8rem,5.5vw,4.5rem);font-weight:400;line-height:0.95;letter-spacing:-0.03em}
+.vA .hero__title em{color:#C9A84C;font-style:italic}
+.vA .hero__sub{font-family:'Spectral',serif;font-style:italic;font-size:1rem;color:#88887e;max-width:380px;line-height:1.7;margin-top:2rem}
+.vA .hero__ctas{display:flex;gap:1rem;margin-top:2.5rem}
+
+/* A: Stats */
+.vA .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #18181c;border-bottom:1px solid #18181c}
+.vA .stats__item{padding:2rem 1.5rem;text-align:center;border-right:1px solid #18181c}
+.vA .stats__item:last-child{border-right:none}
+.vA .stats__num{font-family:'Lora',serif;font-size:2rem;color:#C9A84C;font-weight:300}
+.vA .stats__label{font-family:'Inter',sans-serif;font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:#4a4a4a;margin-top:0.3rem}
+
+/* A: Quote */
+.vA .quote{border-top:1px solid #18181c;border-bottom:1px solid #18181c;padding:4.5rem max(2rem,4vw);text-align:center}
+.vA .quote__text{font-family:'Lora',serif;font-style:italic;font-size:clamp(1.2rem,2.2vw,1.8rem);font-weight:300;max-width:620px;margin:0 auto;line-height:1.5;color:#d8d8d0}
+.vA .quote__attr{font-family:'Inter',sans-serif;font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;color:#C9A84C;margin-top:1.5rem}
+
+/* A: Library List */
+.vA .library{padding:5rem max(2rem,4vw)}
+.vA .library__eyebrow{font-family:'Inter',sans-serif;font-size:0.56rem;letter-spacing:0.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:0.8rem}
+.vA .library__title{font-family:'Lora',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin-bottom:1rem}
+.vA .library__intro{font-family:'Spectral',serif;font-size:0.95rem;color:#7a7a76;font-style:italic;max-width:540px;line-height:1.7;margin-bottom:3rem}
+
+.vA .item{display:grid;grid-template-columns:3rem 1fr auto;gap:1.5rem;align-items:baseline;padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,0.035);transition:all 0.2s}
+.vA .item:hover{padding-left:0.8rem;background:linear-gradient(90deg,rgba(201,168,76,0.025),transparent)}
+.vA .item__num{font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#3e3e3e}
+.vA .item__title{font-family:'Lora',serif;font-size:1.08rem;font-weight:400}
+.vA .item:hover .item__title{color:#C9A84C}
+.vA .item__desc{font-family:'Spectral',serif;font-size:0.82rem;color:#5a5a56;font-style:italic;margin-top:0.2rem}
+.vA .item__type{font-family:'Inter',sans-serif;font-size:0.5rem;letter-spacing:0.12em;text-transform:uppercase;color:#3e3e3e;white-space:nowrap}
+
+/* A: Manifesto Preview */
+.vA .manifesto-preview{padding:5rem max(2rem,4vw);background:#0c0b0f}
+
+/* A: About */
+.vA .about{padding:5rem max(2rem,4vw);display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start}
+.vA .about__visual{aspect-ratio:3/4;background:linear-gradient(135deg,#14121a,#1a1520);display:flex;align-items:center;justify-content:center;position:relative;border:1px solid #1a1a1e}
+.vA .about__visual-text{font-family:'Lora',serif;font-size:clamp(2rem,4vw,3.5rem);font-style:italic;opacity:0.08;text-align:center;line-height:1.15}
+.vA .about__text p{font-family:'Spectral',serif;font-size:1rem;color:#9a9a96;line-height:1.8;margin-bottom:1.2rem}
+.vA .about__text p:first-child{font-family:'Lora',serif;font-size:1.15rem;font-style:italic;color:#c8c8c0;line-height:1.6}
+
+/* A: World */
+.vA .world{padding:5rem max(2rem,4vw);background:#0a0a0d}
+.vA .world-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:#18181c;border:1px solid #18181c;margin-top:2rem}
+.vA .world-card{background:#08080a;padding:2.5rem 2rem}
+.vA .world-card:hover{background:#0c0b0f}
+.vA .world-card__label{font-family:'Inter',sans-serif;font-size:0.52rem;letter-spacing:0.16em;text-transform:uppercase;color:#C9A84C;margin-bottom:0.8rem}
+.vA .world-card__title{font-family:'Lora',serif;font-size:1.2rem;font-weight:500;margin-bottom:0.6rem}
+.vA .world-card__text{font-family:'Spectral',serif;font-size:0.88rem;color:#7a7a76;line-height:1.7}
+
+/* A: Footer */
+.vA .foot{padding:3rem max(2rem,4vw);border-top:1px solid #18181c;display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem}
+.vA .foot__brand{font-family:'Lora',serif;font-size:1.2rem;margin-bottom:0.5rem}
+.vA .foot__desc{font-family:'Spectral',serif;font-size:0.85rem;color:#4a4a4a;line-height:1.6;max-width:350px}
+.vA .foot__heading{font-family:'Inter',sans-serif;font-size:0.55rem;letter-spacing:0.16em;text-transform:uppercase;color:#6a6a6a;margin-bottom:0.8rem}
+.vA .foot__link{font-family:'Spectral',serif;font-size:0.88rem;color:#5a5a5a;display:block;margin-bottom:0.4rem}
+.vA .foot__link:hover{color:#C9A84C}
+.vA .foot__bottom{padding:2rem max(2rem,4vw);border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;font-size:0.78rem}
+.vA .foot__copy{font-family:'Inter',sans-serif;font-size:0.6rem;color:#3a3a3a}
+.vA .foot__sign{font-family:'Lora',serif;font-style:italic;color:#C9A84C;font-size:0.82rem}
+
+/* =========================================
+   VERSION B — SOVEREIGN MINIMAL
+   Maximum restraint. Type IS the design.
+   ========================================= */
+.vB{background:#0a0a0a;color:#f0efe8}
+
+.vB .sn{display:flex;justify-content:space-between;padding:2rem max(2rem,4vw);align-items:baseline}
+.vB .sn__L{font-family:'Inter',sans-serif;font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase}
+.vB .sn__R{font-family:'Inter',sans-serif;font-size:0.6rem;letter-spacing:0.15em;color:#3e3e3e}
+
+.vB .hero{min-height:82vh;display:flex;flex-direction:column;justify-content:center;padding:0 max(2rem,4vw)}
+.vB .hero__title{font-family:'Lora',serif;font-size:clamp(3.5rem,8vw,7rem);font-weight:400;font-style:italic;line-height:0.9;letter-spacing:-0.04em;max-width:700px}
+.vB .hero__title em{color:#C9A84C}
+.vB .hero__rule{width:48px;height:1px;background:#C9A84C;margin:3rem 0}
+.vB .hero__sub{font-family:'Spectral',serif;font-style:italic;font-size:1.05rem;color:#7a7a76;max-width:420px;line-height:1.7}
+
+.vB .quote{border-top:1px solid #151515;border-bottom:1px solid #151515;padding:4.5rem max(2rem,4vw);text-align:center}
+.vB .quote__text{font-family:'Lora',serif;font-style:italic;font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:300;max-width:600px;margin:0 auto;line-height:1.5;color:#d0cfc8}
+.vB .quote__attr{font-family:'Inter',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:#C9A84C;margin-top:1.5rem}
+
+.vB .split{display:grid;grid-template-columns:1fr 1fr}
+.vB .col{padding:4.5rem max(2rem,4vw)}
+.vB .col--L{border-right:1px solid #151515}
+.vB .col__eyebrow{font-family:'Inter',sans-serif;font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:#C9A84C;margin-bottom:2rem}
+
+.vB .row{display:flex;justify-content:space-between;align-items:baseline;padding:0.7rem 0;border-bottom:1px solid rgba(255,255,255,0.025);transition:all 0.15s}
+.vB .row:hover{padding-left:0.5rem;background:linear-gradient(90deg,rgba(201,168,76,0.02),transparent)}
+.vB .row__num{font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#2e2e2e;margin-right:1rem}
+.vB .row__title{font-family:'Lora',serif;font-size:0.95rem;flex:1}
+.vB .row:hover .row__title{color:#C9A84C}
+.vB .row__note{font-family:'Inter',sans-serif;font-size:0.5rem;letter-spacing:0.1em;text-transform:uppercase;color:#3a3a3a}
+.vB .cta{margin-top:2rem;font-family:'Inter',sans-serif;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:#C9A84C}
+
+/* B: Interstitial Image area */
+.vB .interstitial{height:45vh;background:linear-gradient(135deg,#12101a 0%,#1a1520 50%,#0e0c10 100%);display:flex;align-items:center;justify-content:center;position:relative}
+.vB .interstitial__text{font-family:'Lora',serif;font-style:italic;font-size:clamp(1.3rem,2.5vw,2rem);font-weight:300;color:#c0bfb8;max-width:550px;text-align:center;line-height:1.5}
+
+/* B: Principles */
+.vB .principles{padding:5rem max(2rem,4vw)}
+.vB .p-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:2rem}
+.vB .p-item{padding:2.5rem 2rem;border-bottom:1px solid #151515}
+.vB .p-item:nth-child(odd){border-right:1px solid #151515}
+.vB .p-item__num{font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#2e2e2e;margin-bottom:0.8rem}
+.vB .p-item__title{font-family:'Lora',serif;font-size:1.08rem;font-weight:500;margin-bottom:0.5rem}
+.vB .p-item__text{font-family:'Spectral',serif;font-size:0.88rem;color:#6a6a66;line-height:1.7}
+
+/* B: About */
+.vB .about{padding:5rem max(2rem,4vw);border-top:1px solid #151515}
+.vB .about__content{max-width:620px}
+.vB .about__content p{font-family:'Spectral',serif;font-size:1rem;color:#8a8a86;line-height:1.8;margin-bottom:1.2rem}
+.vB .about__content p:first-child{font-family:'Lora',serif;font-size:1.15rem;font-style:italic;color:#c8c8c0}
+
+/* B: Footer */
+.vB .foot{padding:3rem max(2rem,4vw);border-top:1px solid #151515;display:flex;justify-content:space-between;align-items:baseline}
+.vB .foot__L{font-family:'Spectral',serif;color:#2e2e2e;font-style:italic;font-size:0.85rem}
+.vB .foot__R{font-family:'Lora',serif;color:#C9A84C;font-style:italic;font-size:0.82rem}
+
+/* =========================================
+   VERSION C — CINEMATIC SCROLL
+   Centered. Vertical drama. Full-bleed.
+   ========================================= */
+.vC{background:#050508;color:#e8e6df}
+
+.vC .sn{display:flex;justify-content:space-between;padding:1.5rem max(2rem,4vw);align-items:center}
+.vC .sn__brand{font-family:'Inter',sans-serif;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase}
+.vC .sn__links{display:flex;gap:1.5rem;font-family:'Inter',sans-serif;font-size:0.55rem;letter-spacing:0.12em;text-transform:uppercase;color:#6a6a6a}
+.vC .sn__links span:hover{color:#e8e6df}
+
+.vC .hero{min-height:95vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;background:radial-gradient(ellipse at 50% 30%,rgba(201,168,76,0.04) 0%,transparent 60%)}
+.vC .hero__eyebrow{font-family:'Inter',sans-serif;font-size:0.55rem;letter-spacing:0.25em;text-transform:uppercase;color:#C9A84C;margin-bottom:2rem}
+.vC .hero__title{font-family:'Lora',serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:400;line-height:0.95;letter-spacing:-0.03em}
+.vC .hero__title em{color:#C9A84C}
+.vC .hero__sub{font-family:'Spectral',serif;font-style:italic;font-size:1.05rem;color:#7a7a76;max-width:500px;line-height:1.7;margin-top:2.5rem}
+.vC .hero__ctas{display:flex;gap:1rem;margin-top:3rem}
+.vC .hero__scroll{position:absolute;bottom:2rem;display:flex;flex-direction:column;align-items:center;gap:0.5rem}
+.vC .hero__scroll span{font-family:'Inter',sans-serif;font-size:0.5rem;letter-spacing:0.12em;text-transform:uppercase;color:#3a3a3a}
+.vC .hero__scroll-line{width:1px;height:28px;background:linear-gradient(to bottom,#C9A84C,transparent);animation:pulse 2.5s ease-in-out infinite}
+
+@keyframes pulse{0%,100%{opacity:0.4}50%{opacity:0.9}}
+
+/* C: Interstitial */
+.vC .interstitial{height:42vh;background:linear-gradient(135deg,#12101a 0%,#1a1520 50%,#0e0c10 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:3rem}
+.vC .interstitial__text{font-family:'Lora',serif;font-style:italic;font-size:clamp(1.3rem,2.8vw,2rem);font-weight:300;color:#d0cfc8;max-width:600px;line-height:1.5}
+.vC .interstitial__attr{font-family:'Inter',sans-serif;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:#C9A84C;margin-top:1.5rem}
+
+/* C: Stats */
+.vC .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #1a1a1e;border-bottom:1px solid #1a1a1e}
+.vC .stats__item{padding:2.5rem 1.5rem;text-align:center;border-right:1px solid #1a1a1e}
+.vC .stats__item:last-child{border-right:none}
+.vC .stats__num{font-family:'Lora',serif;font-size:2.2rem;color:#C9A84C;font-weight:300}
+.vC .stats__label{font-family:'Inter',sans-serif;font-size:0.55rem;letter-spacing:0.14em;text-transform:uppercase;color:#4a4a4a;margin-top:0.3rem}
+
+/* C: Library grid */
+.vC .library{padding:5rem max(2rem,4vw)}
+.vC .library__eyebrow{font-family:'Inter',sans-serif;font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:#C9A84C;margin-bottom:0.8rem}
+.vC .library__title{font-family:'Lora',serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:400;margin-bottom:1rem}
+.vC .library__intro{font-family:'Spectral',serif;font-size:0.95rem;color:#6a6a66;font-style:italic;max-width:540px;line-height:1.7;margin-bottom:3rem}
+
+.vC .grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#1a1a1e}
+.vC .card{background:#050508;padding:3rem 2.5rem;min-height:220px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;transition:all 0.4s ease}
+.vC .card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity 0.4s}
+.vC .card:nth-child(odd)::before{background:radial-gradient(circle at 30% 70%,rgba(201,168,76,0.04) 0%,transparent 50%)}
+.vC .card:nth-child(even)::before{background:radial-gradient(circle at 70% 70%,rgba(201,168,76,0.04) 0%,transparent 50%)}
+.vC .card:hover::before{opacity:1}
+.vC .card:hover{background:#0a0a0d}
+.vC .card__tag{font-family:'Inter',sans-serif;font-size:0.5rem;letter-spacing:0.16em;text-transform:uppercase;color:#C9A84C;position:relative}
+.vC .card__title{font-family:'Lora',serif;font-size:1.3rem;font-weight:400;margin:0.7rem 0 0.4rem;position:relative}
+.vC .card:hover .card__title{color:#C9A84C}
+.vC .card__sub{font-family:'Spectral',serif;font-size:0.85rem;color:#6a6a66;font-style:italic;position:relative}
+
+/* C: Manifesto Preview */
+.vC .manifesto{padding:5rem max(2rem,4vw);background:#0a0a0d}
+.vC .m-list{max-width:700px}
+.vC .m-item{display:grid;grid-template-columns:3rem 1fr;gap:1rem;align-items:baseline;padding:0.9rem 0;border-bottom:1px solid rgba(255,255,255,0.03);transition:all 0.15s}
+.vC .m-item:hover{padding-left:0.5rem;background:linear-gradient(90deg,rgba(201,168,76,0.02),transparent)}
+.vC .m-item__num{font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:#3a3a3a}
+.vC .m-item__title{font-family:'Lora',serif;font-size:1rem}
+.vC .m-item:hover .m-item__title{color:#C9A84C}
+.vC .m-item__desc{font-family:'Spectral',serif;font-size:0.8rem;color:#4a4a46;font-style:italic;margin-top:0.15rem}
+
+/* C: About */
+.vC .about{padding:5rem max(2rem,4vw);display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start}
+.vC .about__visual{aspect-ratio:3/4;background:linear-gradient(135deg,#12101a,#1a1520);border:1px solid #1a1a1e;display:flex;align-items:center;justify-content:center}
+.vC .about__visual-text{font-family:'Lora',serif;font-size:clamp(2rem,4vw,3.5rem);font-style:italic;opacity:0.06;text-align:center;line-height:1.15}
+.vC .about__text p{font-family:'Spectral',serif;font-size:1rem;color:#8a8a86;line-height:1.8;margin-bottom:1.2rem}
+.vC .about__text p:first-child{font-family:'Lora',serif;font-size:1.15rem;font-style:italic;color:#c0bfb8}
+
+/* C: World */
+.vC .world{padding:5rem max(2rem,4vw);background:#08080b}
+.vC .w-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1a1a1e;border:1px solid #1a1a1e;margin-top:2rem}
+.vC .w-card{background:#050508;padding:2.5rem 2rem;transition:all 0.3s}
+.vC .w-card:hover{background:#0a0a0d}
+.vC .w-card__label{font-family:'Inter',sans-serif;font-size:0.5rem;letter-spacing:0.16em;text-transform:uppercase;color:#C9A84C;margin-bottom:0.7rem}
+.vC .w-card__title{font-family:'Lora',serif;font-size:1.15rem;font-weight:500;margin-bottom:0.5rem}
+.vC .w-card__text{font-family:'Spectral',serif;font-size:0.85rem;color:#6a6a66;line-height:1.7}
+
+/* C: Footer */
+.vC .foot{padding:3rem max(2rem,4vw);border-top:1px solid #1a1a1e;text-align:center}
+.vC .foot__sign{font-family:'Lora',serif;color:#C9A84C;font-style:italic;font-size:0.85rem;margin-bottom:0.5rem}
+.vC .foot__copy{font-family:'Inter',sans-serif;font-size:0.55rem;color:#3a3a3a}
+
+/* === BUTTONS (shared) === */
+.btn{display:inline-block;padding:0.75rem 1.8rem;font-family:'Inter',sans-serif;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:all 0.2s;text-decoration:none}
+.btn--gold{background:#8B732A;color:#f0efe8;border:1px solid #8B732A}
+.btn--gold:hover{background:#C9A84C;color:#0a0a0a;border-color:#C9A84C}
+.btn--ghost{background:transparent;color:#7a7a7a;border:1px solid #333}
+.btn--ghost:hover{border-color:#C9A84C;color:#C9A84C}
+
+/* === RESPONSIVE === */
+@media(max-width:900px){
+  .vA .hero{grid-template-columns:1fr}
+  .vA .hero__R{display:none}
+  .vA .stats{grid-template-columns:repeat(2,1fr)}
+  .vA .item{grid-template-columns:2.5rem 1fr}
+  .vA .item__type{display:none}
+  .vA .about{grid-template-columns:1fr}
+  .vA .about__visual{max-height:280px}
+  .vA .foot{grid-template-columns:1fr}
+
+  .vB .split{grid-template-columns:1fr}
+  .vB .col--L{border-right:none;border-bottom:1px solid #151515}
+  .vB .p-grid{grid-template-columns:1fr}
+  .vB .p-item:nth-child(odd){border-right:none}
+
+  .vC .grid{grid-template-columns:1fr}
+  .vC .stats{grid-template-columns:repeat(2,1fr)}
+  .vC .about{grid-template-columns:1fr}
+  .vC .w-grid{grid-template-columns:1fr}
+
+  .rnav__tab{padding:0.4rem 1rem;font-size:0.55rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== REVIEW NAV ========== -->
+<div class="rnav">
+  <div class="rnav__title">Powerhouse Novelas &mdash; Homepage Direction Review</div>
+  <div class="rnav__tabs">
+    <button class="rnav__tab active" onclick="show('A',this)">A: Editorial Noir</button>
+    <button class="rnav__tab" onclick="show('B',this)">B: Sovereign Minimal</button>
+    <button class="rnav__tab" onclick="show('C',this)">C: Cinematic Scroll</button>
+  </div>
+  <div class="rnav__vibe" id="vibe">Asymmetric. Type-driven. Literary journal meets Criterion Collection.</div>
+</div>
+
+<div class="site-frame">
+
+<!-- ╔═══════════════════════════════════════════╗
+     ║  VERSION A — EDITORIAL NOIR               ║
+     ╚═══════════════════════════════════════════╝ -->
+<div class="site-version active" id="vA">
+<div class="vA">
+
+  <nav class="sn">
+    <span class="sn__brand">POWERHOUSE NOVELAS</span>
+    <div class="sn__links"><span>Manifesto</span><span>Library</span><span>World</span></div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero__L">
+      <div class="hero__eyebrow">Part of the Monica Craiyon Universe</div>
+      <h1 class="hero__title">Power<br><em>moves</em><br>through<br>bodies.</h1>
+      <p class="hero__sub">Serialized fiction for readers who want more than plot. Stories that live at the intersection of ambition, desire, and institutional power.</p>
+      <div class="hero__ctas">
+        <a class="btn btn--gold">Read the Manifesto</a>
+        <a class="btn btn--ghost">Explore Library</a>
+      </div>
+    </div>
+    <div class="hero__R"><div class="hero__glyph">PHN</div></div>
+  </section>
+
+  <div class="stats">
+    <div class="stats__item"><div class="stats__num">13</div><div class="stats__label">Manifesto Essays</div></div>
+    <div class="stats__item"><div class="stats__num">4+</div><div class="stats__label">Novela Series</div></div>
+    <div class="stats__item"><div class="stats__num">26</div><div class="stats__label">Published Works</div></div>
+    <div class="stats__item"><div class="stats__num">&infin;</div><div class="stats__label">Words in Motion</div></div>
+  </div>
+
+  <div class="quote">
+    <p class="quote__text">&ldquo;We could have written philosophical essays. We chose fiction &mdash; deliberately &mdash; because fiction enters the body before the mind has time to refuse it.&rdquo;</p>
+    <div class="quote__attr">&mdash; The PHN Manifesto</div>
+  </div>
+
+  <section class="library">
+    <div class="library__eyebrow">The Library</div>
+    <h2 class="library__title">Enter the World</h2>
+    <p class="library__intro">Each series is an ecosystem &mdash; not a linear catalog. Coherence comes from the consistent examination of power, desire, and consequence.</p>
+
+    <div class="item"><span class="item__num">01</span><div><div class="item__title">The PHN Manifesto</div><div class="item__desc">13 essays. The philosophical architecture for everything that follows.</div></div><span class="item__type">Foundation</span></div>
+    <div class="item"><span class="item__num">02</span><div><div class="item__title">Broken Vase</div><div class="item__desc">A surgeon. A system. The hairline fractures that become fault lines.</div></div><span class="item__type">Novela</span></div>
+    <div class="item"><span class="item__num">03</span><div><div class="item__title">After the Silence</div><div class="item__desc">The terrain between betrayal and reinvention. Neither person can pretend anymore.</div></div><span class="item__type">Novela</span></div>
+    <div class="item"><span class="item__num">04</span><div><div class="item__title">Agony</div><div class="item__desc">The body keeps the score. So does the institution. ~1.4M words across multiple books.</div></div><span class="item__type">Novela</span></div>
+    <div class="item"><span class="item__num">05</span><div><div class="item__title">La Clave</div><div class="item__desc">Power, rhythm, and the unspoken codes that govern how women move through systems.</div></div><span class="item__type">Archive</span></div>
+    <div class="item"><span class="item__num">06</span><div><div class="item__title">Blood and Sugar</div><div class="item__desc">What the body metabolizes. What it refuses. Inheritance and appetite.</div></div><span class="item__type">Archive</span></div>
+    <div class="item"><span class="item__num">07</span><div><div class="item__title">From the Ashes</div><div class="item__desc">What survives the fire. Reckoning with loss and gain.</div></div><span class="item__type">Archive</span></div>
+    <div class="item"><span class="item__num">08</span><div><div class="item__title">The Lost Years</div><div class="item__desc">The scenes between the scenes. Recovered fragments of a universe still being written.</div></div><span class="item__type">Collection</span></div>
+    <div class="item"><span class="item__num">09</span><div><div class="item__title">San Juan-Aguilar Chronicles</div><div class="item__desc">Generational stories. Family systems. The weight of a name.</div></div><span class="item__type">Chronicles</span></div>
+  </section>
+
+  <div class="quote" style="background:#0c0b0f">
+    <p class="quote__text">&ldquo;Most systems that examine human behavior begin somewhere comfortable. Powerhouse begins with the body because the body does not lie.&rdquo;</p>
+    <div class="quote__attr">&mdash; Essay 4: Power Moves Through Bodies</div>
+  </div>
+
+  <section class="manifesto-preview">
+    <div class="library__eyebrow">The Foundation</div>
+    <h2 class="library__title">The PHN Manifesto</h2>
+    <p class="library__intro">Thirteen essays that establish the rules of this world. Start here.</p>
+    <div class="item"><span class="item__num">01</span><div><div class="item__title">Welcome to Powerhouse</div><div class="item__desc">A deliberate space for exploring human behavior at its most intimate and consequential.</div></div><span class="item__type">Essay</span></div>
+    <div class="item"><span class="item__num">02</span><div><div class="item__title">Unveiling Power</div><div class="item__desc">Certain truths about human behavior are everywhere and still routinely distorted.</div></div><span class="item__type">Essay</span></div>
+    <div class="item"><span class="item__num">03</span><div><div class="item__title">Why Fiction</div><div class="item__desc">We chose fiction &mdash; deliberately &mdash; because fiction enters the body before the mind can refuse it.</div></div><span class="item__type">Essay</span></div>
+    <div class="item"><span class="item__num">04</span><div><div class="item__title">Power Moves Through Bodies</div><div class="item__desc">The body does not lie. We begin there.</div></div><span class="item__type">Essay</span></div>
+    <div class="item"><span class="item__num">05</span><div><div class="item__title">On Eroticism, Immersion, and the Cost of Intensity</div><div class="item__desc">We do not write around the body. We write through it.</div></div><span class="item__type">Essay</span></div>
+  </section>
+
+  <section class="about">
+    <div class="about__visual"><div class="about__visual-text">Power<br>Moves<br>Through<br>Bodies</div></div>
+    <div class="about__text">
+      <p>Serialized fiction for readers who want more than plot. A body of work organized as an ecosystem &mdash; its coherence comes from the consistent examination of power, desire, responsibility, and consequence.</p>
+      <p>The work is erotically explicit because distance distorts truth. It does not privilege heterosexuality as a default. It does not moralize desire. It asks: how does power actually move through intimate relationships &mdash; and what happens when someone refuses to be managed?</p>
+      <p>Every story in this universe shares a common architecture: the body reveals what language conceals. Power &mdash; not love, not morality, not individual goodness &mdash; is the organizing force.</p>
+      <p style="color:#4a4a4a;font-size:0.88rem">Part of the <span style="color:#C9A84C">Monica Craiyon</span> universe.</p>
+    </div>
+  </section>
+
+  <section class="world">
+    <div class="library__eyebrow">The Architecture</div>
+    <h2 class="library__title">The Rules of This World</h2>
+    <div class="world-grid">
+      <div class="world-card"><div class="world-card__label">Principle I</div><h3 class="world-card__title">Power Is the Organizing Force</h3><p class="world-card__text">Not love. Not morality. Power &mdash; how it moves, who holds it, who refuses it &mdash; is the architecture that governs every relationship and body in this universe.</p></div>
+      <div class="world-card"><div class="world-card__label">Principle II</div><h3 class="world-card__title">The Body Does Not Lie</h3><p class="world-card__text">The body reveals what language conceals. Desire, exhaustion, violence, pleasure &mdash; these are data points, not metaphors.</p></div>
+      <div class="world-card"><div class="world-card__label">Principle III</div><h3 class="world-card__title">Distance Distorts Truth</h3><p class="world-card__text">Pulling back from the body creates distance that allows the reader to remain comfortable rather than implicated.</p></div>
+      <div class="world-card"><div class="world-card__label">Principle IV</div><h3 class="world-card__title">No Default Hierarchies</h3><p class="world-card__text">This universe does not privilege heterosexuality as a default. It does not moralize desire. It observes power dynamics in all configurations.</p></div>
+      <div class="world-card"><div class="world-card__label">Principle V</div><h3 class="world-card__title">Fiction as Truth Delivery</h3><p class="world-card__text">Fiction enters the body before the mind has time to refuse it. Story bypasses the defenses that keep people from seeing what they already know.</p></div>
+      <div class="world-card"><div class="world-card__label">Principle VI</div><h3 class="world-card__title">Ecosystem, Not Catalog</h3><p class="world-card__text">Every series is connected &mdash; not by plot, but by architecture. The same examination runs through every story.</p></div>
+    </div>
+  </section>
+
+  <div class="foot">
+    <div><div class="foot__brand">Powerhouse Novelas</div><p class="foot__desc">Serialized fiction exploring power, medicine, and the women who refuse to be managed.</p></div>
+    <div><div class="foot__heading">Navigate</div><span class="foot__link">The Manifesto</span><span class="foot__link">Library</span><span class="foot__link">The World</span></div>
+    <div><div class="foot__heading">Universe</div><span class="foot__link">Monica Craiyon</span></div>
+  </div>
+  <div class="foot__bottom"><span class="foot__copy">&copy; 2026 Powerhouse Novelas &middot; Part of the Monica Craiyon Universe</span><span class="foot__sign">Power moves through bodies.</span></div>
+
+</div>
+</div>
+
+<!-- ╔═══════════════════════════════════════════╗
+     ║  VERSION B — SOVEREIGN MINIMAL             ║
+     ╚═══════════════════════════════════════════╝ -->
+<div class="site-version" id="vB">
+<div class="vB">
+
+  <nav class="sn">
+    <span class="sn__L">Powerhouse</span>
+    <span class="sn__R">Novelas</span>
+  </nav>
+
+  <section class="hero">
+    <h1 class="hero__title">Power.<br>Medicine.<br><em>Desire.</em></h1>
+    <div class="hero__rule"></div>
+    <p class="hero__sub">Serialized fiction exploring power, medicine, and the women who refuse to be managed.</p>
+  </section>
+
+  <div class="quote">
+    <p class="quote__text">&ldquo;The body reveals what language conceals.&rdquo;</p>
+    <div class="quote__attr">The PHN Manifesto</div>
+  </div>
+
+  <section class="split">
+    <div class="col col--L">
+      <div class="col__eyebrow">The Manifesto</div>
+      <div class="row"><span class="row__num">01</span><span class="row__title">Welcome to Powerhouse</span></div>
+      <div class="row"><span class="row__num">02</span><span class="row__title">Unveiling Power</span></div>
+      <div class="row"><span class="row__num">03</span><span class="row__title">Why Fiction</span></div>
+      <div class="row"><span class="row__num">04</span><span class="row__title">Power Moves Through Bodies</span></div>
+      <div class="row"><span class="row__num">05</span><span class="row__title">On Eroticism, Immersion, and the Cost of Intensity</span></div>
+      <div class="row"><span class="row__num">06</span><span class="row__title">On Love and Its Discontents</span></div>
+      <div class="row"><span class="row__num">07</span><span class="row__title">The Architecture of Silence</span></div>
+      <div class="cta">Read all 13 essays &rarr;</div>
+    </div>
+    <div class="col">
+      <div class="col__eyebrow">The Library</div>
+      <div class="row"><span class="row__title">Broken Vase</span><span class="row__note">In progress</span></div>
+      <div class="row"><span class="row__title">After the Silence</span><span class="row__note">Book One</span></div>
+      <div class="row"><span class="row__title">Agony</span><span class="row__note">In development</span></div>
+      <div class="row"><span class="row__title">La Clave</span><span class="row__note">Archive</span></div>
+      <div class="row"><span class="row__title">Blood and Sugar</span><span class="row__note">Archive</span></div>
+      <div class="row"><span class="row__title">From the Ashes</span><span class="row__note">Archive</span></div>
+      <div class="row"><span class="row__title">The Lost Years</span><span class="row__note">Extended</span></div>
+      <div class="row"><span class="row__title">San Juan-Aguilar Chronicles</span><span class="row__note">Chronicles</span></div>
+    </div>
+  </section>
+
+  <div class="interstitial">
+    <p class="interstitial__text">&ldquo;We could have written philosophical essays. We chose fiction &mdash; deliberately &mdash; because fiction enters the body before the mind has time to refuse it.&rdquo;</p>
+  </div>
+
+  <section class="principles">
+    <div class="col__eyebrow">The Architecture</div>
+    <h2 style="font-family:'Lora',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin-bottom:0.5rem">The Rules of This World</h2>
+    <div class="p-grid">
+      <div class="p-item"><div class="p-item__num">I</div><h3 class="p-item__title">Power Is the Organizing Force</h3><p class="p-item__text">Not love. Not morality. Power &mdash; how it moves, who holds it, who refuses it.</p></div>
+      <div class="p-item"><div class="p-item__num">II</div><h3 class="p-item__title">The Body Does Not Lie</h3><p class="p-item__text">Desire, exhaustion, violence, pleasure &mdash; these are data points, not metaphors.</p></div>
+      <div class="p-item"><div class="p-item__num">III</div><h3 class="p-item__title">Distance Distorts Truth</h3><p class="p-item__text">Pulling back from the body creates distance that allows comfort over implication.</p></div>
+      <div class="p-item"><div class="p-item__num">IV</div><h3 class="p-item__title">No Default Hierarchies</h3><p class="p-item__text">No moralized desire. No ranked bodies. Power dynamics observed in all configurations.</p></div>
+      <div class="p-item"><div class="p-item__num">V</div><h3 class="p-item__title">Fiction as Truth Delivery</h3><p class="p-item__text">Story bypasses the defenses that keep people from seeing what they already know.</p></div>
+      <div class="p-item"><div class="p-item__num">VI</div><h3 class="p-item__title">Ecosystem, Not Catalog</h3><p class="p-item__text">Connected not by plot but by architecture. The same examination in every story.</p></div>
+    </div>
+  </section>
+
+  <div class="quote" style="background:#0c0c0c">
+    <p class="quote__text">&ldquo;Powerhouse begins with the body because the body does not lie.&rdquo;</p>
+    <div class="quote__attr">&mdash; Essay 4</div>
+  </div>
+
+  <section class="about">
+    <div class="col__eyebrow">About</div>
+    <div class="about__content">
+      <p>Serialized fiction for readers who want more than plot. A body of work organized as an ecosystem.</p>
+      <p>The work is erotically explicit because distance distorts truth. It does not privilege heterosexuality as a default. It does not moralize desire. Every story shares a common architecture: the body reveals what language conceals.</p>
+      <p style="color:#4a4a4a;font-size:0.88rem">Part of the <span style="color:#C9A84C">Monica Craiyon</span> universe.</p>
+    </div>
+  </section>
+
+  <div class="foot">
+    <span class="foot__L">Part of the Monica Craiyon universe.</span>
+    <span class="foot__R">Power moves through bodies.</span>
+  </div>
+
+</div>
+</div>
+
+<!-- ╔═══════════════════════════════════════════╗
+     ║  VERSION C — CINEMATIC SCROLL              ║
+     ╚═══════════════════════════════════════════╝ -->
+<div class="site-version" id="vC">
+<div class="vC">
+
+  <nav class="sn">
+    <span class="sn__brand">Powerhouse Novelas</span>
+    <div class="sn__links"><span>Manifesto</span><span>Library</span><span>World</span></div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero__eyebrow">Part of the Monica Craiyon Universe</div>
+    <h1 class="hero__title">Powerhouse<br><em>Novelas</em></h1>
+    <p class="hero__sub">Serialized fiction exploring power, medicine, and the women who refuse to be managed. Written by women who know what it costs.</p>
+    <div class="hero__ctas">
+      <a class="btn btn--gold">Read the Manifesto</a>
+      <a class="btn btn--ghost">Explore Library</a>
+    </div>
+    <div class="hero__scroll"><span>Scroll</span><div class="hero__scroll-line"></div></div>
+  </section>
+
+  <div class="stats">
+    <div class="stats__item"><div class="stats__num">13</div><div class="stats__label">Manifesto Essays</div></div>
+    <div class="stats__item"><div class="stats__num">4+</div><div class="stats__label">Novela Series</div></div>
+    <div class="stats__item"><div class="stats__num">26</div><div class="stats__label">Published Works</div></div>
+    <div class="stats__item"><div class="stats__num">&infin;</div><div class="stats__label">Words in Motion</div></div>
+  </div>
+
+  <div class="interstitial">
+    <div>
+      <p class="interstitial__text">&ldquo;Fiction enters the body before the mind has time to refuse it.&rdquo;</p>
+      <div class="interstitial__attr">&mdash; The PHN Manifesto</div>
+    </div>
+  </div>
+
+  <section class="library">
+    <div class="library__eyebrow">The Library</div>
+    <h2 class="library__title">Enter the World</h2>
+    <p class="library__intro">Each series is an ecosystem. Coherence comes from the examination of power, desire, and consequence &mdash; not from plot.</p>
+
+    <div class="grid">
+      <div class="card"><span class="card__tag">13 Essays</span><h3 class="card__title">The PHN Manifesto</h3><p class="card__sub">Foundation. Doctrine. The rules of this world.</p></div>
+      <div class="card"><span class="card__tag">Novela</span><h3 class="card__title">Broken Vase</h3><p class="card__sub">The hairline fractures that become fault lines.</p></div>
+      <div class="card"><span class="card__tag">Novela</span><h3 class="card__title">After the Silence</h3><p class="card__sub">After the unsaid thing is finally spoken.</p></div>
+      <div class="card"><span class="card__tag">Novela</span><h3 class="card__title">Agony</h3><p class="card__sub">The body keeps the score. So does the institution.</p></div>
+      <div class="card"><span class="card__tag">Archive</span><h3 class="card__title">La Clave</h3><p class="card__sub">The unspoken codes that govern movement.</p></div>
+      <div class="card"><span class="card__tag">Archive</span><h3 class="card__title">Blood and Sugar</h3><p class="card__sub">What the body metabolizes. What it refuses.</p></div>
+      <div class="card"><span class="card__tag">Archive</span><h3 class="card__title">From the Ashes</h3><p class="card__sub">What survives the fire.</p></div>
+      <div class="card"><span class="card__tag">Collection</span><h3 class="card__title">The Lost Years</h3><p class="card__sub">The scenes between the scenes.</p></div>
+    </div>
+  </section>
+
+  <div class="interstitial" style="height:35vh;background:linear-gradient(135deg,#0e0c14,#18131e,#0c0a10)">
+    <div>
+      <p class="interstitial__text">&ldquo;Most systems that examine human behavior begin somewhere comfortable. Powerhouse begins with the body because the body does not lie.&rdquo;</p>
+      <div class="interstitial__attr">&mdash; Essay 4: Power Moves Through Bodies</div>
+    </div>
+  </div>
+
+  <section class="manifesto">
+    <div class="library__eyebrow">The Foundation</div>
+    <h2 class="library__title">The PHN Manifesto</h2>
+    <p class="library__intro">Thirteen essays. Start here.</p>
+    <div class="m-list">
+      <div class="m-item"><span class="m-item__num">01</span><div><div class="m-item__title">Welcome to Powerhouse</div><div class="m-item__desc">A deliberate space for exploring human behavior at its most intimate and consequential.</div></div></div>
+      <div class="m-item"><span class="m-item__num">02</span><div><div class="m-item__title">Unveiling Power</div><div class="m-item__desc">Certain truths are everywhere and still routinely distorted. Not hidden &mdash; distorted.</div></div></div>
+      <div class="m-item"><span class="m-item__num">03</span><div><div class="m-item__title">Why Fiction</div><div class="m-item__desc">Fiction enters the body before the mind can refuse it.</div></div></div>
+      <div class="m-item"><span class="m-item__num">04</span><div><div class="m-item__title">Power Moves Through Bodies</div><div class="m-item__desc">The body does not lie. We begin there.</div></div></div>
+      <div class="m-item"><span class="m-item__num">05</span><div><div class="m-item__title">On Eroticism, Immersion, and the Cost of Intensity</div><div class="m-item__desc">We do not write around the body. We write through it.</div></div></div>
+    </div>
+    <div style="margin-top:2rem"><a class="btn btn--ghost">Read All 13 Essays &rarr;</a></div>
+  </section>
+
+  <section class="about">
+    <div class="about__visual"><div class="about__visual-text">Power<br>Moves<br>Through<br>Bodies</div></div>
+    <div class="about__text">
+      <p>Serialized fiction for readers who want more than plot. A body of work organized as an ecosystem.</p>
+      <p>The work is erotically explicit because distance distorts truth. It does not privilege heterosexuality as a default. It asks: how does power actually move through intimate relationships &mdash; and what happens when someone refuses to be managed?</p>
+      <p>Every story shares a common architecture: the body reveals what language conceals. Power is the organizing force.</p>
+      <p style="color:#4a4a4a;font-size:0.88rem">Part of the <span style="color:#C9A84C">Monica Craiyon</span> universe.</p>
+    </div>
+  </section>
+
+  <section class="world">
+    <div class="library__eyebrow">The Architecture</div>
+    <h2 class="library__title">The Rules of This World</h2>
+    <div class="w-grid">
+      <div class="w-card"><div class="w-card__label">Principle I</div><h3 class="w-card__title">Power Is the Organizing Force</h3><p class="w-card__text">Not love. Not morality. Power governs every relationship and body.</p></div>
+      <div class="w-card"><div class="w-card__label">Principle II</div><h3 class="w-card__title">The Body Does Not Lie</h3><p class="w-card__text">Desire, exhaustion, pleasure &mdash; data points, not metaphors.</p></div>
+      <div class="w-card"><div class="w-card__label">Principle III</div><h3 class="w-card__title">Distance Distorts Truth</h3><p class="w-card__text">Pulling back from the body allows comfort over implication.</p></div>
+      <div class="w-card"><div class="w-card__label">Principle IV</div><h3 class="w-card__title">No Default Hierarchies</h3><p class="w-card__text">No moralized desire. Power dynamics observed everywhere.</p></div>
+      <div class="w-card"><div class="w-card__label">Principle V</div><h3 class="w-card__title">Fiction as Truth Delivery</h3><p class="w-card__text">Story bypasses the defenses of the conscious mind.</p></div>
+      <div class="w-card"><div class="w-card__label">Principle VI</div><h3 class="w-card__title">Ecosystem, Not Catalog</h3><p class="w-card__text">Connected by architecture, not by plot.</p></div>
+    </div>
+  </section>
+
+  <div class="foot">
+    <div class="foot__sign">Power moves through bodies.</div>
+    <div class="foot__copy">&copy; 2026 Powerhouse Novelas &middot; Part of the Monica Craiyon Universe</div>
+  </div>
+
+</div>
+</div>
+
+</div><!-- /site-frame -->
+
+<script>
+const vibes={
+  A:'Asymmetric. Type-driven. Literary journal meets Criterion Collection.',
+  B:'Maximum restraint. The typography IS the design. High-fashion lookbook for fiction.',
+  C:'Centered. Vertical drama. Full-bleed sections. Cinematic landing page energy.'
+};
+function show(id,btn){
+  document.querySelectorAll('.site-version').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.rnav__tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('v'+id).classList.add('active');
+  btn.classList.add('active');
+  document.getElementById('vibe').textContent=vibes[id];
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
