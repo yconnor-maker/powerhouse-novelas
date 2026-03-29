@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manifesto | Editorial Noir</title>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="section--darker">
+
+  <nav class="sn reveal" style="transition-delay:0.1s">
+    <a href="index.html" class="sn__brand">Powerhouse Novelas</a>
+    <div class="sn__links">
+      <a href="library.html">Library</a>
+      <a href="manifesto.html" style="color:var(--gold)">Manifesto</a>
+      <a href="world.html">World</a>
+      <a href="../index.html">[Prevs]</a>
+    </div>
+  </nav>
+
+  <div class="manifesto-layout">
+    <nav class="manifesto-sidebar reveal">
+      <h3>Table of Contents</h3>
+      <ul id="manifesto-toc">
+        <!-- JS dynamically fills this -->
+      </ul>
+    </nav>
+    <main class="manifesto-content" id="manifesto-content">
+      <!-- JS dynamically fills this from manifesto_data.json -->
+    </main>
+  </div>
+
+  <footer class="foot reveal">
+    <div>
+      <div class="foot__brand">Powerhouse Novelas</div>
+    </div>
+    <div></div>
+    <div>
+      <div class="foot__heading">Navigation</div>
+      <a href="library.html" class="foot__link">Library</a>
+      <a href="manifesto.html" class="foot__link">Manifesto</a>
+      <a href="world.html" class="foot__link">World</a>
+    </div>
+  </footer>
+
+  <script src="../assets/manifesto.js"></script>
+</body>
+</html>

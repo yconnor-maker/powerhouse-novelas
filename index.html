@@ -3,270 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Powerhouse Novelas — Serialized fiction exploring power, medicine, and the women who refuse to be managed. Stories at the intersection of ambition, desire, and institutional power.">
-  <meta name="theme-color" content="#0a0a12">
-  <meta property="og:title" content="Powerhouse Novelas">
-  <meta property="og:description" content="Serialized fiction exploring power, medicine, and the women who refuse to be managed.">
-  <meta property="og:type" content="website">
-  <title>Powerhouse Novelas — Power. Medicine. Desire.</title>
+  <title>Powerhouse Novelas - Previews</title>
   <link rel="stylesheet" href="assets/style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #050505;
+      color: var(--text-main);
+      text-align: center;
+      padding: 2rem;
+    }
+    .brand {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      font-style: italic;
+    }
+    .brand em {
+      color: var(--gold);
+    }
+    .sub {
+      font-family: var(--font-body);
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      font-style: italic;
+      margin-bottom: 4rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      width: 100%;
+      max-width: 1000px;
+    }
+    .card {
+      background: var(--bg-elevated);
+      border: 1px solid #1a1a1e;
+      padding: 3rem 2rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 4px;
+    }
+    .card:hover {
+      background: #0c0c0f;
+      border-color: var(--gold);
+      transform: translateY(-5px);
+    }
+    .card h2 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .card p {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    .review-link {
+      margin-top: 4rem;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      color: #666;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .review-link:hover {
+      color: var(--text-main);
+    }
+  </style>
 </head>
 <body>
+  <div class="reveal">
+    <h1 class="brand">Powerhouse <em>Novelas</em></h1>
+    <p class="sub">Part of the Monica Craiyon Universe</p>
+  </div>
 
-  <!-- ═══ Floating particles ═══ -->
-  <div class="particles" id="particles" aria-hidden="true"></div>
+  <div class="grid">
+    <a href="editorial-noir/index.html" class="card reveal" style="transition-delay: 0.1s">
+      <h2>Editorial Noir</h2>
+      <p>Asymmetric. List-driven. Literary journal meets private club.</p>
+    </a>
+    
+    <a href="sovereign-minimal/index.html" class="card reveal" style="transition-delay: 0.2s">
+      <h2>Sovereign Minimal</h2>
+      <p>Type-only, extreme restraint. The typography IS the design.</p>
+    </a>
+    
+    <a href="cinematic-scroll/index.html" class="card reveal" style="transition-delay: 0.3s">
+      <h2>Cinematic Scroll</h2>
+      <p>Centered, full-bleed cards, cinematic pacing. Immersive layout.</p>
+    </a>
+  </div>
 
-  <!-- ═══ Navigation ═══ -->
-  <nav class="nav" id="nav">
-    <a href="index.html" class="nav__brand">Powerhouse<span>.</span></a>
-    <ul class="nav__links" id="navLinks">
-      <li><a href="index.html" class="nav__link nav__link--active">Home</a></li>
-      <li><a href="manifesto.html" class="nav__link">The Manifesto</a></li>
-      <li><a href="library.html" class="nav__link">Library</a></li>
-      <li><a href="world.html" class="nav__link">The World</a></li>
-    </ul>
-    <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+  <a href="review.html" class="review-link reveal" style="transition-delay: 0.4s">View Original Single-Page Preview Framework &rarr;</a>
 
-  <!-- ═══ Hero ═══ -->
-  <section class="hero" id="hero">
-    <div class="hero__bg"></div>
-    <div class="hero__content">
-      <p class="hero__eyebrow">A Diosa Ara Project</p>
-      <h1 class="hero__title">Powerhouse<br>Novelas</h1>
-      <p class="hero__tagline">
-        Serialized fiction exploring power, medicine,<br>
-        and the women who refuse to be managed.
-      </p>
-      <div class="hero__divider"></div>
-      <p class="hero__description">
-        Stories that live at the intersection of ambition, desire, and institutional power.
-        Written by women who know what it costs to refuse to be managed.
-      </p>
-      <div class="hero__cta-group">
-        <a href="manifesto.html" class="btn btn--primary">Read the Manifesto</a>
-        <a href="library.html" class="btn btn--ghost">Explore the Library</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ Stats ═══ -->
-  <div class="section-divider"></div>
-  <section class="section" id="numbers">
-    <div class="section__inner reveal">
-      <div class="stats">
-        <div class="stat">
-          <div class="stat__number">13</div>
-          <div class="stat__label">Manifesto Essays</div>
-        </div>
-        <div class="stat">
-          <div class="stat__number">4+</div>
-          <div class="stat__label">Novela Series</div>
-        </div>
-        <div class="stat">
-          <div class="stat__number">26</div>
-          <div class="stat__label">Published Works</div>
-        </div>
-        <div class="stat">
-          <div class="stat__number">∞</div>
-          <div class="stat__label">Words in Motion</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ Featured Series ═══ -->
-  <div class="section-divider"></div>
-  <section class="section" id="series" style="background: radial-gradient(ellipse at 50% 0%, rgba(139, 34, 82, 0.06) 0%, transparent 60%);">
-    <div class="section__inner">
-      <div class="section__header reveal">
-        <p class="section__eyebrow">The Library</p>
-        <h2 class="section__title">Enter the World</h2>
-        <p class="section__subtitle">Each series is an ecosystem — not a linear catalog. Coherence comes from the consistent examination of power, desire, and consequence.</p>
-      </div>
-      <div class="series-grid">
-
-        <a href="manifesto.html" class="series-card reveal">
-          <span class="series-card__badge series-card__badge--essay">13 Essays</span>
-          <h3 class="series-card__title">The PHN Manifesto</h3>
-          <p class="series-card__excerpt">
-            Powerhouse exists because certain truths about human behavior are everywhere and still routinely distorted. Not hidden — distorted. These essays lay the philosophical foundation for everything that follows.
-          </p>
-          <div class="series-card__meta">
-            <span>Foundation Series</span>
-            <span class="series-card__read-more">Begin Reading →</span>
-          </div>
-        </a>
-
-        <div class="series-card reveal">
-          <span class="series-card__badge series-card__badge--series">Novela</span>
-          <h3 class="series-card__title">Broken Vase</h3>
-          <p class="series-card__excerpt">
-            A surgeon. A system that was never built for her. The hairline fractures that become fault lines — in a marriage, in a career, in the architecture of who she was told to be.
-          </p>
-          <div class="series-card__meta">
-            <span>In Progress · 15+ Episodes</span>
-            <span class="series-card__read-more">Coming Soon</span>
-          </div>
-        </div>
-
-        <div class="series-card reveal">
-          <span class="series-card__badge series-card__badge--series">Novela</span>
-          <h3 class="series-card__title">After the Silence</h3>
-          <p class="series-card__excerpt">
-            What happens after the silence — after the unsaid thing is finally spoken, and neither person can pretend anymore. A story about the terrain between betrayal and reinvention.
-          </p>
-          <div class="series-card__meta">
-            <span>Book One · Multi-Act</span>
-            <span class="series-card__read-more">Coming Soon</span>
-          </div>
-        </div>
-
-        <div class="series-card reveal">
-          <span class="series-card__badge series-card__badge--series">Novela</span>
-          <h3 class="series-card__title">Agony</h3>
-          <p class="series-card__excerpt">
-            The body keeps the score. So does the institution. A story about pain — physical, institutional, erotic — and the women who refuse anesthesia in every sense of the word.
-          </p>
-          <div class="series-card__meta">
-            <span>In Development</span>
-            <span class="series-card__read-more">Coming Soon</span>
-          </div>
-        </div>
-
-        <div class="series-card reveal">
-          <span class="series-card__badge series-card__badge--standalone">Archive</span>
-          <h3 class="series-card__title">La Clave</h3>
-          <p class="series-card__excerpt">
-            Power, rhythm, and the unspoken codes that govern how women move through systems designed to keep them legible and controlled.
-          </p>
-          <div class="series-card__meta">
-            <span>Archive Collection</span>
-            <span class="series-card__read-more">Coming Soon</span>
-          </div>
-        </div>
-
-        <div class="series-card reveal">
-          <span class="series-card__badge series-card__badge--standalone">Collection</span>
-          <h3 class="series-card__title">The Lost Years</h3>
-          <p class="series-card__excerpt">
-            The scenes between the scenes. Lost fragments, recovered drafts, and the connective tissue of a universe still being written.
-          </p>
-          <div class="series-card__meta">
-            <span>Extended Universe</span>
-            <span class="series-card__read-more">Coming Soon</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ Manifesto Preview ═══ -->
-  <div class="section-divider"></div>
-  <section class="section" id="manifesto-preview">
-    <div class="section__inner">
-      <div class="section__header reveal">
-        <p class="section__eyebrow">The Foundation</p>
-        <h2 class="section__title">The PHN Manifesto</h2>
-        <p class="section__subtitle">Thirteen essays that establish the rules of this world. Start here.</p>
-      </div>
-      <div class="manifesto-list">
-
-        <a href="manifesto.html#essay-1" class="manifesto-item reveal">
-          <span class="manifesto-item__number">01</span>
-          <div class="manifesto-item__content">
-            <h3 class="manifesto-item__title">Welcome to Powerhouse</h3>
-            <p class="manifesto-item__excerpt">Powerhouse is a deliberate space for exploring human behavior at its most intimate and consequential. We are not here to reassure you, entertain you lightly, or offer simple answers.</p>
-          </div>
-        </a>
-
-        <a href="manifesto.html#essay-2" class="manifesto-item reveal">
-          <span class="manifesto-item__number">02</span>
-          <div class="manifesto-item__content">
-            <h3 class="manifesto-item__title">Unveiling Power</h3>
-            <p class="manifesto-item__excerpt">Powerhouse exists because certain truths about human behavior are everywhere and still routinely distorted. Not hidden — distorted.</p>
-          </div>
-        </a>
-
-        <a href="manifesto.html#essay-3" class="manifesto-item reveal">
-          <span class="manifesto-item__number">03</span>
-          <div class="manifesto-item__content">
-            <h3 class="manifesto-item__title">Why Fiction</h3>
-            <p class="manifesto-item__excerpt">We could have written philosophical essays. We could have produced think pieces, cultural commentary, academic arguments. We chose fiction — deliberately.</p>
-          </div>
-        </a>
-
-        <a href="manifesto.html#essay-4" class="manifesto-item reveal">
-          <span class="manifesto-item__number">04</span>
-          <div class="manifesto-item__content">
-            <h3 class="manifesto-item__title">Power Moves Through Bodies</h3>
-            <p class="manifesto-item__excerpt">Most systems that examine human behavior begin somewhere comfortable — with emotion, with narrative, with moral reasoning. Powerhouse begins with the body because the body does not lie.</p>
-          </div>
-        </a>
-
-        <a href="manifesto.html#essay-5" class="manifesto-item reveal">
-          <span class="manifesto-item__number">05</span>
-          <div class="manifesto-item__content">
-            <h3 class="manifesto-item__title">On Eroticism, Immersion, and the Cost of Intensity</h3>
-            <p class="manifesto-item__excerpt">Powerhouse is erotically explicit because distance distorts truth. We do not write around the body. We write through it.</p>
-          </div>
-        </a>
-
-        <div class="manifesto-item reveal" style="justify-content: center; border: none; padding-top: 2rem;">
-          <a href="manifesto.html" class="btn btn--ghost" style="margin: 0 auto;">Read All 13 Essays →</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ About ═══ -->
-  <div class="section-divider"></div>
-  <section class="section" id="about" style="background: radial-gradient(ellipse at 80% 50%, rgba(201, 168, 76, 0.04) 0%, transparent 60%);">
-    <div class="section__inner">
-      <div class="about-grid reveal">
-        <div class="about-grid__text">
-          <p>
-            <strong style="color: var(--gold);">Powerhouse Novelas</strong> is serialized fiction for readers who want more than plot. It is a body of work organized as an ecosystem — its coherence comes from the consistent examination of power, desire, responsibility, and consequence.
-          </p>
-          <p>
-            The work is erotically explicit because distance distorts truth. It does not privilege heterosexuality as a default. It does not moralize desire. It asks: <em>how does power actually move through intimate relationships — and what happens when someone refuses to be managed?</em>
-          </p>
-          <p>
-            Every story in this universe shares a common architecture: the body reveals what language conceals. Power — not love, not morality, not individual goodness — is the organizing force.
-          </p>
-          <p style="color: var(--text-dim); font-size: 0.9rem;">
-            A <a href="https://diosaarallc.com" target="_blank">Diosa Ara</a> project.
-          </p>
-        </div>
-        <div class="about-grid__visual">
-          <div class="about-grid__visual-text">
-            Power<br>Moves<br>Through<br>Bodies
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ Footer ═══ -->
-  <footer class="footer">
-    <div class="footer__inner">
-      <span class="footer__brand">Powerhouse Novelas</span>
-      <ul class="footer__links">
-        <li><a href="manifesto.html" class="footer__link">Manifesto</a></li>
-        <li><a href="library.html" class="footer__link">Library</a></li>
-        <li><a href="world.html" class="footer__link">World</a></li>
-      </ul>
-      <p class="footer__copy">
-        © 2026 Powerhouse Novelas · A Diosa Ara Project · Not affiliated with Labora Collective
-      </p>
-    </div>
-  </footer>
-
-  <script src="assets/main.js"></script>
+  <script src="assets/manifesto.js"></script>
 </body>
 </html>
