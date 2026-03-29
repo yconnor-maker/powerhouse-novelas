@@ -3,125 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The World of Powerhouse Novelas. Understand the philosophy and architecture of our universe.">
-  <meta name="theme-color" content="#0a0a12">
-  <title>The World — Powerhouse Novelas</title>
+  <title>World | Cinematic Scroll</title>
   <link rel="stylesheet" href="assets/style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-  <style>
-    .world-intro {
-      max-width: 800px;
-      margin: 0 auto 5rem;
-      text-align: left;
-    }
-    .world-intro p {
-      font-family: var(--font-reading);
-      font-size: 1.25rem;
-      color: var(--text-secondary);
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-    .world-intro p:first-of-type::first-letter {
-      font-family: var(--font-display);
-      font-size: 4rem;
-      float: left;
-      line-height: 0.8;
-      padding-right: 0.5rem;
-      color: var(--gold);
-      font-weight: 700;
-    }
-    .concept-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 4rem;
-      padding-top: 4rem;
-      border-top: 1px solid var(--border-subtle);
-    }
-    .concept-card {
-      background: var(--bg-card);
-      padding: 2.5rem;
-      border: 1px solid var(--border-subtle);
-      border-radius: 4px;
-    }
-    .concept-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-    .concept-card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/cinematic.css">
 </head>
-<body class="bg-deep">
+<body style="background: #000;">
 
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <a href="index.html" class="nav__brand">Powerhouse<span>.</span></a>
-    <ul class="nav__links" id="navLinks">
-      <li><a href="index.html" class="nav__link">Home</a></li>
-      <li><a href="manifesto.html" class="nav__link">The Manifesto</a></li>
-      <li><a href="library.html" class="nav__link">Library</a></li>
-      <li><a href="world.html" class="nav__link nav__link--active">The World</a></li>
-    </ul>
-    <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
-    </button>
+  <nav class="sn reveal">
+    <a href="index.html" class="sn__brand">POWERHOUSE</a>
+    <div class="sn__links">
+      <a href="library.html">Library</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="world.html" style="color:var(--gold)">World</a>
+      
+    </div>
   </nav>
 
-  <section class="section" style="padding-top: calc(var(--nav-height) + 6rem);">
-    <div class="section__inner reveal">
-      
-      <div class="section__header">
-        <p class="section__eyebrow">Philosophy & Architecture</p>
-        <h1 class="section__title" style="font-size: clamp(2.5rem, 6vw, 4rem);">The World We Build</h1>
-      </div>
-
-      <div class="world-intro">
-        <p>Powerhouse Novelas operates from a narrative assumption that some readers will find uncomfortable: asymmetrical or mixed attraction is far more common than public identity suggests. Power — not love, not morality, not individual goodness — is the organizing force of every intimacy and every institution.</p>
-        
-        <p>This is a collaborative creation by a diverse team of writers. We deliberately distance our characters from our personal lives, challenging the common misconception that fiction written by women forms a confessional diary. We do not write autobiographies masked as narratives; we map the systemic forces that shape ambition, desire, and survival across clinical and emotional environments.</p>
-
-        <p>We do not privilege heterosexuality as the default lens. We do not write around the body; we write exclusively through it. The body is the first and final arbiter of truth, bypassing the intellectual justifications we construct to stay comfortable.</p>
-      </div>
-
-      <div class="concept-grid">
-        <div class="concept-card">
-          <h3>The Architecture of Asymmetry</h3>
-          <p>We examine how power distributes itself unequally in every relationship. We explore the dynamics of betrayal, the silent agreements that uphold open and closed structures, and why the truth is often weaponized before it is acknowledged.</p>
-        </div>
-        <div class="concept-card">
-          <h3>Emotional Cartography</h3>
-          <p>The terrain where desire and betrayal converge. Our stories dissect the fault lines in clinical environments where the consequences of desire carry both professional and intensely personal weight.</p>
-        </div>
-        <div class="concept-card">
-          <h3>Systemic Friction</h3>
-          <p>Characters who refuse to be managed will inevitably collide with the institutions designed to contain them. Be it a hospital hierarchy or a marital expectation, we chart the destruction—and rebirth—that follows such collisions.</p>
-        </div>
-      </div>
-
+  <section class="c-card c-card--left reveal" style="padding-top: 5rem;">
+    <div class="c-card__bg"><img src="assets/images/portrait-11.png" alt="Archetype"></div>
+    <div class="c-card__content">
+      <div class="c-card__num">001: The Anchor</div>
+      <h2 class="c-card__title">Gravity<br>Embedded</h2>
+      <p class="c-card__desc">The presence around which others rearrange themselves.</p>
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="footer__inner">
-      <span class="footer__brand">Powerhouse Novelas</span>
-      <ul class="footer__links">
-        <li><a href="index.html" class="footer__link">Home</a></li>
-        <li><a href="manifesto.html" class="footer__link">Manifesto</a></li>
-        <li><a href="library.html" class="footer__link">Library</a></li>
-      </ul>
-      <p class="footer__copy">
-        © 2026 Powerhouse Novelas · A Diosa Ara Project
-      </p>
+  <section class="c-card c-card--right reveal">
+    <div class="c-card__bg"><img src="assets/images/phn-throne-room.png" alt="Chamber"></div>
+    <div class="c-card__content">
+      <div class="c-card__num">002: The Chamber</div>
+      <h2 class="c-card__title">Vast<br>Scales</h2>
+      <p class="c-card__desc">Built to make the individual feel small.</p>
     </div>
-  </footer>
+  </section>
 
-  <script src="assets/main.js"></script>
+  <section class="c-card c-card--left reveal">
+    <div class="c-card__bg"><img src="assets/images/texture-6.png" alt="Texture"></div>
+    <div class="c-card__content">
+      <div class="c-card__num">003: Dissipation</div>
+      <h2 class="c-card__title">Slow<br>Irreversible</h2>
+      <p class="c-card__desc">The bleed of consequence into a neutral space.</p>
+    </div>
+  </section>
+
+  <section class="c-card c-card--right reveal">
+    <div class="c-card__bg"><img src="assets/images/documentary-4.png" alt="Pressure"></div>
+    <div class="c-card__content">
+      <div class="c-card__num">004: Structural</div>
+      <h2 class="c-card__title">External<br>Pressures</h2>
+      <p class="c-card__desc">The forces that compound internal negotiations.</p>
+    </div>
+  </section>
+
+  <script src="assets/manifesto.js"></script>
 </body>
 </html>

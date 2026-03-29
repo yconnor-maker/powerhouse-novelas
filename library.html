@@ -3,128 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The Library of Powerhouse Novelas. View the full collection of stories, novellas, and series.">
-  <meta name="theme-color" content="#0a0a12">
-  <title>Library — Powerhouse Novelas</title>
+  <title>Library | Cinematic Scroll</title>
   <link rel="stylesheet" href="assets/style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="stylesheet" href="assets/cinematic.css">
 </head>
-<body class="bg-deep">
+<body style="background: #050505;">
 
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <a href="index.html" class="nav__brand">Powerhouse<span>.</span></a>
-    <ul class="nav__links" id="navLinks">
-      <li><a href="index.html" class="nav__link">Home</a></li>
-      <li><a href="manifesto.html" class="nav__link">The Manifesto</a></li>
-      <li><a href="library.html" class="nav__link nav__link--active">Library</a></li>
-      <li><a href="world.html" class="nav__link">The World</a></li>
-    </ul>
-    <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
-    </button>
+  <nav class="sn reveal">
+    <a href="index.html" class="sn__brand">POWERHOUSE</a>
+    <div class="sn__links">
+      <a href="library.html" style="color:var(--gold)">Library</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="world.html">World</a>
+      
+    </div>
   </nav>
 
-  <section class="section" style="padding-top: calc(var(--nav-height) + 6rem); min-height: 80vh;">
-    <div class="section__inner">
-      <div class="section__header reveal">
-        <p class="section__eyebrow">Complete Collection</p>
-        <h1 class="section__title" style="font-size: clamp(2.5rem, 6vw, 4rem);">The Library</h1>
-        <p class="section__subtitle" style="margin-top: 1.5rem;">The full architecture of stories traversing desire, medicine, and consequence.</p>
+  <div class="lib-grid">
+    <a href="#" class="poster reveal">
+      <img src="assets/images/hero-banner.png" alt="Cover">
+      <div class="poster__overlay">
+        <div class="poster__label">Canonical Novel</div>
+        <h3 class="poster__title">The Distance Between Us</h3>
+        <div class="poster__author">A Powerhouse Original</div>
       </div>
-
-      <div class="series-grid" style="margin-top: 4rem;">
-        
-        <div class="series-card reveal">
-          <span class="series-card__badge series-card__badge--series">Novela</span>
-          <h3 class="series-card__title">Broken Vase</h3>
-          <p class="series-card__excerpt">
-            A surgeon. A system that was never built for her. The hairline fractures that become fault lines — in a marriage, in a career, in the architecture of who she was told to be. Features Jessica's POV, the morning after, and the consequences of refusing anesthesia.
-          </p>
-          <div class="series-card__meta">
-            <span>Episodes 1-17 • Complete</span>
-            <span class="series-card__read-more" style="color: var(--text-muted)">Unlocking Soon</span>
-          </div>
-        </div>
-
-        <div class="series-card reveal">
-          <span class="series-card__badge series-card__badge--series">Novela</span>
-          <h3 class="series-card__title">After the Silence</h3>
-          <p class="series-card__excerpt">
-            What happens after the silence — after the unsaid thing is finally spoken, and neither person can pretend anymore. A story about the terrain between betrayal and reinvention. Built on the premise that power, not love, organizes reality.
-          </p>
-          <div class="series-card__meta">
-            <span>Book One • Final Revisions</span>
-            <span class="series-card__read-more" style="color: var(--text-muted)">Unlocking Soon</span>
-          </div>
-        </div>
-
-        <div class="series-card reveal">
-          <span class="series-card__badge series-card__badge--series">Novela</span>
-          <h3 class="series-card__title">Agony</h3>
-          <p class="series-card__excerpt">
-            The body keeps the score. So does the institution. A story about pain — physical, institutional, erotic — and the women who refuse to simply absorb it. 
-          </p>
-          <div class="series-card__meta">
-            <span>In Development</span>
-            <span class="series-card__read-more" style="color: var(--text-muted)">Unlocking Soon</span>
-          </div>
-        </div>
-
-        <a href="manifesto.html" class="series-card reveal">
-          <span class="series-card__badge series-card__badge--essay">13 Essays</span>
-          <h3 class="series-card__title">The PHN Manifesto</h3>
-          <p class="series-card__excerpt">
-            These essays lay the philosophical foundation for everything that follows. They explain why we write fiction instead of essays, why we center explicit body mechanics over moral reasoning, and the fundamental rules of this universe.
-          </p>
-          <div class="series-card__meta">
-            <span>Required Reading</span>
-            <span class="series-card__read-more">Read Now →</span>
-          </div>
-        </a>
-
-        <div class="series-card reveal">
-          <span class="series-card__badge series-card__badge--standalone">Collection</span>
-          <h3 class="series-card__title">La Clave</h3>
-          <p class="series-card__excerpt">
-            Power, rhythm, and the unspoken codes that govern how women move through systems designed to keep them legible and controlled. An archival exploration.
-          </p>
-          <div class="series-card__meta">
-            <span>Archive</span>
-            <span class="series-card__read-more" style="color: var(--text-muted)">Restricted</span>
-          </div>
-        </div>
-
-        <div class="series-card reveal">
-          <span class="series-card__badge series-card__badge--standalone">Extended Universe</span>
-          <h3 class="series-card__title">The Lost Years</h3>
-          <p class="series-card__excerpt">
-            The scenes between the scenes. Lost fragments, recovered drafts, scenes from the cutting room floor, and the connective tissue of a universe still being mapped.
-          </p>
-          <div class="series-card__meta">
-            <span>Vault</span>
-            <span class="series-card__read-more" style="color: var(--text-muted)">Restricted</span>
-          </div>
-        </div>
-
+    </a>
+    
+    <a href="#" class="poster reveal" style="transition-delay:0.1s">
+      <img src="assets/images/throne-chair.png" alt="Cover">
+      <div class="poster__overlay">
+        <div class="poster__label">Episodic Novella</div>
+        <h3 class="poster__title">Negotiable Truths</h3>
+        <div class="poster__author">A Powerhouse Original</div>
       </div>
-    </div>
-  </section>
+    </a>
 
-  <footer class="footer">
-    <div class="footer__inner">
-      <span class="footer__brand">Powerhouse Novelas</span>
-      <ul class="footer__links">
-        <li><a href="index.html" class="footer__link">Home</a></li>
-        <li><a href="manifesto.html" class="footer__link">Manifesto</a></li>
-        <li><a href="world.html" class="footer__link">World</a></li>
-      </ul>
-      <p class="footer__copy">
-        © 2026 Powerhouse Novelas · A Diosa Ara Project
-      </p>
-    </div>
-  </footer>
+    <a href="#" class="poster reveal" style="transition-delay:0.2s">
+      <img src="assets/images/portrait-11.png" alt="Cover">
+      <div class="poster__overlay">
+        <div class="poster__label">Moral Case Study</div>
+        <h3 class="poster__title">Asymmetric Devotion</h3>
+        <div class="poster__author">A Powerhouse Original</div>
+      </div>
+    </a>
 
-  <script src="assets/main.js"></script>
+    <a href="#" class="poster reveal" style="transition-delay:0.3s">
+      <img src="assets/images/documentary-4.png" alt="Cover">
+      <div class="poster__overlay">
+        <div class="poster__label">Standalone Story</div>
+        <h3 class="poster__title">Residual Heat</h3>
+        <div class="poster__author">A Powerhouse Original</div>
+      </div>
+    </a>
+  </div>
+
+  <script src="assets/manifesto.js"></script>
 </body>
 </html>

@@ -3,111 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Powerhouse Novelas - Previews</title>
+  <title>Powerhouse Novelas | Cinematic Scroll</title>
   <link rel="stylesheet" href="assets/style.css">
-  <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      background: #050505;
-      color: var(--text-main);
-      text-align: center;
-      padding: 2rem;
-    }
-    .brand {
-      font-family: var(--font-serif);
-      font-size: 2.5rem;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-      font-style: italic;
-    }
-    .brand em {
-      color: var(--gold);
-    }
-    .sub {
-      font-family: var(--font-body);
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      font-style: italic;
-      margin-bottom: 4rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      width: 100%;
-      max-width: 1000px;
-    }
-    .card {
-      background: var(--bg-elevated);
-      border: 1px solid #1a1a1e;
-      padding: 3rem 2rem;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border-radius: 4px;
-    }
-    .card:hover {
-      background: #0c0c0f;
-      border-color: var(--gold);
-      transform: translateY(-5px);
-    }
-    .card h2 {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-    .card p {
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-    .review-link {
-      margin-top: 4rem;
-      font-family: var(--font-sans);
-      font-size: 0.7rem;
-      color: #666;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      text-decoration: none;
-    }
-    .review-link:hover {
-      color: var(--text-main);
-    }
-  </style>
+  <link rel="stylesheet" href="assets/cinematic.css">
 </head>
 <body>
-  <div class="reveal">
-    <h1 class="brand">Powerhouse <em>Novelas</em></h1>
-    <p class="sub">Part of the Monica Craiyon Universe</p>
-  </div>
 
-  <div class="grid">
-    <a href="editorial-noir/index.html" class="card reveal" style="transition-delay: 0.1s">
-      <h2>Editorial Noir</h2>
-      <p>Asymmetric. List-driven. Literary journal meets private club.</p>
-    </a>
-    
-    <a href="sovereign-minimal/index.html" class="card reveal" style="transition-delay: 0.2s">
-      <h2>Sovereign Minimal</h2>
-      <p>Type-only, extreme restraint. The typography IS the design.</p>
-    </a>
-    
-    <a href="cinematic-scroll/index.html" class="card reveal" style="transition-delay: 0.3s">
-      <h2>Cinematic Scroll</h2>
-      <p>Centered, full-bleed cards, cinematic pacing. Immersive layout.</p>
-    </a>
-  </div>
+  <nav class="sn reveal">
+    <a href="index.html" class="sn__brand">POWERHOUSE</a>
+    <div class="sn__links">
+      <a href="library.html">Library</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="world.html">World</a>
+      
+    </div>
+  </nav>
 
-  <a href="review.html" class="review-link reveal" style="transition-delay: 0.4s">View Original Single-Page Preview Framework &rarr;</a>
+  <header class="hero">
+    <div class="hero__bg reveal"><img src="assets/images/phn-throne-room.png" alt="Throne Room"></div>
+    <div class="hero__content reveal" style="transition-delay:0.3s">
+      <div class="hero__eyebrow">A Diosa Ara Immersive Concept space - Part of the Monica Craiyon Universe</div>
+      <h1 class="hero__title">Examine the Silence</h1>
+      <p class="hero__sub">Powerhouse explores human behavior at its most intimate and consequential. Where power moves through desire, and intimacy creates consequence.</p>
+      <a href="library.html" class="btn btn--gold">Enter the System</a>
+    </div>
+  </header>
+
+  <!-- Full Bleed Cards -->
+  <section class="c-card c-card--left reveal">
+    <div class="c-card__bg"><img src="assets/images/phn-doorway.png" alt="Doorway"></div>
+    <div class="c-card__content">
+      <div class="c-card__num">001</div>
+      <h2 class="c-card__title">The <br>Threshold</h2>
+      <p class="c-card__desc">A closed moral system examining asymmetry, restraint, and the weight of what is left unsaid.</p>
+      <a href="library.html" class="btn btn--ghost">Explore Narrative</a>
+    </div>
+  </section>
+
+  <section class="c-card c-card--right reveal">
+    <div class="c-card__bg"><img src="assets/images/portrait-5.png" alt="Portrait"></div>
+    <div class="c-card__content">
+      <div class="c-card__num">002</div>
+      <h2 class="c-card__title">Asymmetric <br>Devotion</h2>
+      <p class="c-card__desc">An examination of mismatched pacing, unspoken contracts, and the physics of emotional surrender.</p>
+      <a href="library.html" class="btn btn--ghost">Explore Narrative</a>
+    </div>
+  </section>
+
+  <section class="c-card c-card--left reveal">
+    <div class="c-card__bg"><img src="assets/images/texture-1.png" alt="Texture"></div>
+    <div class="c-card__content">
+      <div class="c-card__num">003</div>
+      <h2 class="c-card__title">Dissolving <br>Boundaries</h2>
+      <p class="c-card__desc">What happens when the architectural rules of a relationship bend, stretch, and eventually break under pressure.</p>
+      <a href="library.html" class="btn btn--ghost">Explore Narrative</a>
+    </div>
+  </section>
 
   <script src="assets/manifesto.js"></script>
 </body>
