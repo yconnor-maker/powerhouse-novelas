@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Manifesto — Powerhouse Novelas</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- Direction Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background-image: url('../assets/images/textures/d9636584-7e56-4c94-8110-3ba30e17bfcb_2.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.9), rgba(5,5,5,0.7));
+            z-index: 1;
+        }
+        .page-header {
+            padding: 15vh 0 5vh;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .page-header p {
+            font-family: var(--font-mono);
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="brand">Powerhouse Novelas</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="library.html">Library</a></li>
+            <li><a href="manifesto.html" class="active">Manifesto</a></li>
+            <li><a href="world.html">The World</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <p>13 Texts</p>
+        <h1>The Manifesto.</h1>
+    </header>
+
+    <div class="glass-container">
+        <div class="manifesto-layout">
+            <aside>
+                <h4 style="font-family: var(--font-mono); color: var(--gold); margin-bottom: 2rem; font-size: 0.85rem; text-transform: uppercase;">Index</h4>
+                <nav id="toc"></nav>
+            </aside>
+
+            <main id="manifesto-content">
+                <!-- Content loaded via JS -->
+                <div id="loading" style="font-family: var(--font-mono); color: var(--gold);">Locating the texts...</div>
+            </main>
+        </div>
+    </div>
+
+    <footer>
+        <h2 style="font-family: var(--font-serif-heading); font-style: italic; color: var(--gold);">Powerhouse Novelas</h2>
+        <div class="universe">Part of the Monica Craiyon Universe</div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const tocContainer = document.getElementById('toc');
+            const contentContainer = document.getElementById('manifesto-content');
+            const loading = document.getElementById('loading');
+
+            fetch('../manifesto_data.json')
+                .then(res => res.json())
+                .then(data => {
+                    loading.style.display = 'none';
+
+                    data.forEach((essay) => {
+                        const link = document.createElement('a');
+                        link.href = `#essay-${essay.num}`;
+                        link.id = `toc-${essay.num}`;
+                        link.innerText = `${String(essay.num).padStart(2, '0')} ${essay.title}`;
+                        tocContainer.appendChild(link);
+
+                        const article = document.createElement('article');
+                        article.id = `essay-${essay.num}`;
+                        
+                        let html = `<span style="display:block; margin-bottom: 1rem; color: var(--gold); font-family: var(--font-mono); font-size: 1.25rem;">${String(essay.num).padStart(2, '0')}</span>`;
+                        html += `<h2>${essay.title}</h2>`;
+                        
+                        const paragraphs = essay.content.split('\n').filter(p => p.trim() !== '');
+                        paragraphs.forEach(p => {
+                            html += `<p>${p}</p>`;
+                        });
+                        
+                        article.innerHTML = html;
+                        contentContainer.appendChild(article);
+                    });
+
+                    const articles = document.querySelectorAll('article');
+                    const observerOptions = {
+                        root: null,
+                        rootMargin: '-30% 0px -60% 0px',
+                        threshold: 0
+                    };
+
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                document.querySelectorAll('#toc a').forEach(a => a.classList.remove('active'));
+                                const id = entry.target.id.split('-')[1];
+                                const activeLink = document.getElementById(`toc-${id}`);
+                                if(activeLink) activeLink.classList.add('active');
+                            }
+                        });
+                    }, observerOptions);
+
+                    articles.forEach(article => observer.observe(article));
+                    
+                    if(data.length > 0 && !window.location.hash) {
+                        document.getElementById(`toc-${data[0].num}`).classList.add('active');
+                    }
+                })
+                .catch(err => {
+                    loading.innerText = "Error loading manifesto.";
+                    console.error(err);
+                });
+        });
+    </script>
+</body>
+</html>

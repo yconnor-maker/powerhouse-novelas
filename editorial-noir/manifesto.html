@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Manifesto — Powerhouse Novelas</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- Direction Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .manifesto-layout {
+            display: grid;
+            grid-template-columns: 3fr 9fr;
+            gap: 4rem;
+            margin-top: 4rem;
+            min-height: 100vh;
+        }
+
+        /* Sidebar TOC */
+        aside {
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+            padding-right: 2rem;
+            border-right: 1px solid var(--border-color);
+        }
+        aside h3 {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+        }
+        #toc {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        #toc a {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+        #toc a.active {
+            color: var(--gold);
+            font-weight: 600;
+        }
+        #toc a:before {
+            content: '●';
+            color: transparent;
+            margin-right: 8px;
+            font-size: 0.6rem;
+            transition: color 0.3s ease;
+        }
+        #toc a.active:before {
+            color: var(--gold);
+        }
+
+        /* Reading Area */
+        main {
+            padding-bottom: 10rem;
+        }
+        article {
+            margin-bottom: 8rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+        article:first-child { border-top: none; padding-top: 0; }
+        
+        article .meta {
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        article h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 2.5rem;
+            max-width: 90%;
+        }
+        article p {
+            margin-bottom: 1.5rem;
+            max-width: 700px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .manifesto-layout {
+                grid-template-columns: 1fr;
+            }
+            aside {
+                position: relative;
+                top: 0;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding-bottom: 2rem;
+            }
+            #toc {
+                flex-direction: row;
+                overflow-x: auto;
+                padding-bottom: 1rem;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container border-left border-right">
+    <nav>
+        <div class="brand">Powerhouse Novelas</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="library.html">Library</a></li>
+            <li><a href="manifesto.html" class="active">Manifesto</a></li>
+            <li><a href="world.html">The World</a></li>
+        </ul>
+    </nav>
+
+    <div class="manifesto-layout">
+        <aside>
+            <h3>Index</h3>
+            <nav id="toc"></nav>
+        </aside>
+
+        <main id="manifesto-content">
+            <!-- Content loaded via JS -->
+            <div id="loading" style="font-family: var(--font-mono); color: var(--gold);">Locating the texts...</div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="universe">Part of the Monica Craiyon Universe</div>
+        <div class="brand-mark">by Monica Craiyon</div>
+    </footer>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const tocContainer = document.getElementById('toc');
+        const contentContainer = document.getElementById('manifesto-content');
+        const loading = document.getElementById('loading');
+
+        fetch('../manifesto_data.json')
+            .then(res => res.json())
+            .then(data => {
+                loading.style.display = 'none';
+
+                data.forEach((essay, idx) => {
+                    // Create TOC Link
+                    const link = document.createElement('a');
+                    link.href = `#essay-${essay.num}`;
+                    link.id = `toc-${essay.num}`;
+                    link.innerText = `${String(essay.num).padStart(2, '0')} ${essay.title}`;
+                    tocContainer.appendChild(link);
+
+                    // Create Article Content
+                    const article = document.createElement('article');
+                    article.id = `essay-${essay.num}`;
+                    
+                    let html = `<span class="meta">${String(essay.num).padStart(2, '0')}</span>`;
+                    html += `<h2>${essay.title}</h2>`;
+                    
+                    // The json strings might be plain text or markdown or html.
+                    // If it's pure text with new lines, let's wrap in paragraph tags
+                    const paragraphs = essay.content.split('\n').filter(p => p.trim() !== '');
+                    paragraphs.forEach(p => {
+                        html += `<p>${p}</p>`;
+                    });
+                    
+                    article.innerHTML = html;
+                    contentContainer.appendChild(article);
+                });
+
+                // Intersection Observer for scroll tracking
+                const articles = document.querySelectorAll('article');
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-20% 0px -70% 0px',
+                    threshold: 0
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // remove active class from all
+                            document.querySelectorAll('#toc a').forEach(a => a.classList.remove('active'));
+                            // add active class to matching id
+                            const id = entry.target.id.split('-')[1];
+                            const activeLink = document.getElementById(`toc-${id}`);
+                            if(activeLink) activeLink.classList.add('active');
+                        }
+                    });
+                }, observerOptions);
+
+                articles.forEach(article => observer.observe(article));
+                
+                // Set first active if no hash
+                if(data.length > 0 && !window.location.hash) {
+                    document.getElementById(`toc-${data[0].num}`).classList.add('active');
+                }
+            })
+            .catch(err => {
+                loading.innerText = "Error loading manifesto.";
+                console.error(err);
+            });
+    });
+</script>
+</body>
+</html>

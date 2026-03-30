@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The World — Powerhouse Novelas</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- Direction Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .world-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5%;
+            position: relative;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        .world-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(5,5,5,0.7) 100%);
+            z-index: 1;
+        }
+        .text-box {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            text-align: left;
+            margin-right: auto;
+        }
+        .text-box h2 {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            margin-bottom: 2rem;
+        }
+        .text-box p {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        .world-num {
+            font-family: var(--font-mono);
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="brand">Powerhouse Novelas</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="library.html">Library</a></li>
+            <li><a href="manifesto.html">Manifesto</a></li>
+            <li><a href="world.html" class="active">The World</a></li>
+        </ul>
+    </nav>
+
+    <!-- Map 1 -->
+    <section class="world-section" style="background-image: url('../assets/images/textures/d9636584-7e56-4c94-8110-3ba30e17bfcb_0.png'); justify-content: flex-start;">
+        <div class="text-box">
+            <span class="world-num">01 / The Core Engine</span>
+            <h2>We name the consequences.</h2>
+            <p>We do not flinch at the consequences. We look them in the eye and name them. The cost of wanting, the cost of needing, the cost of power.</p>
+        </div>
+    </section>
+
+    <!-- Map 2 -->
+    <section class="world-section" style="background-image: url('../assets/images/heroes/a8e970ce-b860-4dab-8939-56aa77224742_2.png'); background-position: top center;">
+        <div class="text-box" style="margin: 0 auto; text-align: center;">
+            <span class="world-num">02 / Architecture</span>
+            <h2>Desire is architecturual.</h2>
+            <p>It acts like gravity. It builds rooms, walls, and institutions, bending the subjects inside them to the will of the structure.</p>
+        </div>
+    </section>
+
+    <!-- Settings Grid inside a dark UI container -->
+    <section style="padding: 10rem 5%; background: var(--bg-deep); position: relative; z-index: 2;">
+        <h2 style="text-align: center; margin-bottom: 6rem;">The Topography</h2>
+        <div class="cinematic-grid">
+            <div class="grid-card">
+                <img src="../assets/images/textures/41f8da23-3784-48a1-ac9e-b405199fa590_1.png" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 2rem;" alt="Rain">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">The Clinical Corridors</h3>
+                <p style="color: var(--text-muted); font-size: 1rem;">The sterile, white-walled spaces where medicine intersects with systemic power.</p>
+            </div>
+            <div class="grid-card">
+                <img src="../assets/images/heroes/1823012_a8e970ce_2.png" onerror="this.style.display='none'" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 2rem;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">The Private Rooms</h3>
+                <p style="color: var(--text-muted); font-size: 1rem;">The dark velvet spaces behind closed doors. Marriages, affairs, the architecture of extreme intimacy.</p>
+            </div>
+            <div class="grid-card">
+                <img src="../assets/images/series/35178b84-126e-4c77-ad05-54f6ef0348ac_2.png" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 2rem;" alt="ICE">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">The Supply Chains</h3>
+                <p style="color: var(--text-muted); font-size: 1rem;">The borders, the detention centers, the streets. Where abstract laws tear open physical human bodies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reading Sequence -->
+    <section class="world-section" style="background-image: url('../assets/images/textures/d9636584-7e56-4c94-8110-3ba30e17bfcb_3.png'); justify-content: center; text-align: center;">
+        <div class="text-box" style="margin: 0 auto; text-align: center;">
+            <p style="font-family: var(--font-mono); color: var(--gold); text-transform: uppercase;">Sequence</p>
+            <h2 style="margin-bottom: 4rem;">Where to enter the universe.</h2>
+            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; font-size: 1.5rem; align-items: center;">
+                <span>The Manifesto</span>
+                <span style="color: var(--gold);">&rarr;</span>
+                <span>La Clave</span>
+                <span style="color: var(--gold);">&rarr;</span>
+                <span>Blood &amp; Sugar</span>
+                <span style="color: var(--gold);">&rarr;</span>
+                <span>Chronicles</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2 style="font-family: var(--font-serif-heading); font-style: italic; color: var(--gold);">Powerhouse Novelas</h2>
+        <div class="universe">Part of the Monica Craiyon Universe</div>
+    </footer>
+
+</body>
+</html>

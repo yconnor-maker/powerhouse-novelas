@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The World — Powerhouse Novelas</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- Direction Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-header {
+            padding: 8rem 0 4rem 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 4rem;
+        }
+        .page-header h1 {
+            font-size: clamp(3rem, 5vw, 5rem);
+        }
+        .page-header p {
+            font-family: var(--font-mono);
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.85rem;
+        }
+
+        /* 6 Principles Grid (Noir) */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 8rem;
+        }
+        .principle-card {
+            padding: 3rem;
+            border: 1px solid var(--border-color);
+            background: var(--bg-surface);
+        }
+        .principle-num {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .principle-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Settings Columns */
+        .settings-section {
+            border-top: 1px solid var(--border-color);
+            padding-top: 4rem;
+            margin-bottom: 8rem;
+        }
+        .settings-section h2 { margin-bottom: 3rem; font-size: 3rem; }
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .setting-card {
+            padding: 2rem;
+        }
+        .setting-card:not(:last-child) {
+            border-right: 1px solid var(--border-color);
+        }
+        .setting-card img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            filter: grayscale(80%);
+        }
+        .setting-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+
+        /* Reading Order Sequence */
+        .reading-order {
+            padding: 6rem;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            margin-bottom: 6rem;
+        }
+        .reading-order h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .sequence {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 3rem;
+            font-family: var(--font-mono);
+            color: var(--gold);
+        }
+        .seq-arrow { font-size: 1.5rem; color: var(--text-muted); padding: 0 1rem; }
+
+        @media (max-width: 900px) {
+            .principles-grid, .settings-grid { grid-template-columns: 1fr; }
+            .setting-card { border-right: none; border-bottom: 1px solid var(--border-color); padding: 3rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container border-left border-right" style="min-height: 100vh;">
+    <nav>
+        <div class="brand">Powerhouse Novelas</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="library.html">Library</a></li>
+            <li><a href="manifesto.html">Manifesto</a></li>
+            <li><a href="world.html" class="active">The World</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <p>Ecosystem Map</p>
+        <h1>Founding Lore.</h1>
+    </header>
+
+    <div class="principles-grid">
+        <!-- 1 -->
+        <article class="principle-card">
+            <div class="principle-num">01</div>
+            <h2 class="principle-title">We name the consequences.</h2>
+            <p>We do not flinch at the consequences. We look them in the eye and name them. The cost of wanting, the cost of needing, the cost of power.</p>
+        </article>
+        <!-- 2 -->
+        <article class="principle-card">
+            <div class="principle-num">02</div>
+            <h2 class="principle-title">Desire is architecturual.</h2>
+            <p>It acts like gravity. It builds rooms, walls, and institutions, bending the subjects inside them to the will of the structure.</p>
+        </article>
+        <!-- 3 -->
+        <article class="principle-card">
+            <div class="principle-num">03</div>
+            <h2 class="principle-title">No unearned redemption.</h2>
+            <p>Grace exists, but only after survival. Forgiveness requires an equal exchange of capital.</p>
+        </article>
+        <!-- 4 -->
+        <article class="principle-card">
+            <div class="principle-num">04</div>
+            <h2 class="principle-title">Power is metabolic.</h2>
+            <p>Systemic oppression and intimate violence process through the body. The body remembers what the mind refuses to process.</p>
+        </article>
+        <!-- 5 -->
+        <article class="principle-card">
+            <div class="principle-num">05</div>
+            <h2 class="principle-title">Precision over chaos.</h2>
+            <p>Destruction is deliberate. There is no wild panic. Burning what needs to burn is an act of clarity.</p>
+        </article>
+        <!-- 6 -->
+        <article class="principle-card">
+            <div class="principle-num">06</div>
+            <h2 class="principle-title">The center is the women.</h2>
+            <p>Women who refuse to be managed. Women who negotiate power on their own terms, accepting 100% of the collateral damage.</p>
+        </article>
+    </div>
+
+    <section class="settings-section">
+        <h2>The Settings</h2>
+        <div class="settings-grid">
+            <div class="setting-card">
+                <img src="../assets/images/textures/d9636584-7e56-4c94-8110-3ba30e17bfcb_2.png" alt="Clinical Spaces">
+                <h3>The Clinical Corridors</h3>
+                <p>The sterile, white-walled spaces where medicine intersects with systemic power.</p>
+            </div>
+            <div class="setting-card">
+                <img src="../assets/images/heroes/1823012_a8e970ce_2.png" onerror="this.src='../assets/images/heroes/phn-doorway.png'" alt="Private Rooms">
+                <h3>The Private Rooms</h3>
+                <p>The dark velvet spaces behind closed doors. Marriages, affairs, the architecture of extreme intimacy.</p>
+            </div>
+            <div class="setting-card">
+                <img src="../assets/images/series/35178b84-126e-4c77-ad05-54f6ef0348ac_2.png" alt="The Streets">
+                <h3>The Supply Chains</h3>
+                <p>The borders, the detention centers, the streets of Minneapolis. Where abstract laws tear open physical human bodies.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="reading-order">
+        <h2>Suggested Reading Order</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">Where to enter the universe.</p>
+        <div class="sequence">
+            <span>The Manifesto</span>
+            <span class="seq-arrow">&rarr;</span>
+            <span>La Clave (Book 1)</span>
+            <span class="seq-arrow">&rarr;</span>
+            <span>Blood and Sugar</span>
+            <span class="seq-arrow">&rarr;</span>
+            <span>The San Juan-Aguilar Chronicles</span>
+        </div>
+    </section>
+
+    <footer>
+        <div class="universe">Part of the Monica Craiyon Universe</div>
+        <div class="brand-mark">by Monica Craiyon</div>
+    </footer>
+</div>
+
+</body>
+</html>

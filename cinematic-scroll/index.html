@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Powerhouse Novelas</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- Direction Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="brand">Powerhouse Novelas</div>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="library.html">Library</a></li>
+            <li><a href="manifesto.html">Manifesto</a></li>
+            <li><a href="world.html">The World</a></li>
+        </ul>
+    </nav>
+
+    <!-- Parallax Hero -->
+    <section class="cinematic-section" style="background-image: url('../assets/images/heroes/A_throne-like_velvet_chair_in_deep_oxblood_positioned_in_a_sh_45f5366b-7bbe-4f64-86a8-c4cec835f09a_0.png');">
+        <div class="content-layer">
+            <h4 style="font-family: var(--font-mono); color: var(--gold); letter-spacing: 0.15em; font-size: 0.85rem; margin-bottom: 2rem;">Part of the Monica Craiyon Universe</h4>
+            <h1>The architecture of extreme desire.</h1>
+            <p style="font-size: 1.5rem; max-width: 800px; margin: 0 auto; color: var(--text-muted); line-height: 1.5;">Serialized fiction exploring power, medicine, and the women who refuse to be managed.</p>
+        </div>
+    </section>
+
+    <!-- Parallax Section 2: Library Preview -->
+    <section class="cinematic-section" style="background-image: url('../assets/images/textures/d9636584-7e56-4c94-8110-3ba30e17bfcb_1.png'); border-top: 1px solid rgba(255,255,255,0.1);">
+        <div class="content-layer" style="width: 100%; max-width: 1200px;">
+            <h2>The Vault</h2>
+            <p style="color: var(--gold); font-family: var(--font-mono); text-transform: uppercase;">9 Primary Series</p>
+            
+            <div class="cinematic-grid">
+                <a href="library.html" class="grid-card">
+                    <h3 style="font-size: 2rem; margin-bottom: 1rem;">La Clave</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;">Power, desire, identity within a marriage that looks perfect from outside.</p>
+                    <span style="color: var(--gold); font-family: var(--font-mono); font-size: 0.75rem;">View Series &rarr;</span>
+                </a>
+                <a href="library.html" class="grid-card">
+                    <h3 style="font-size: 2rem; margin-bottom: 1rem;">Blood and Sugar</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;">Desire, addiction, and the metabolic cost of wanting.</p>
+                    <span style="color: var(--gold); font-family: var(--font-mono); font-size: 0.75rem;">View Series &rarr;</span>
+                </a>
+                <a href="library.html" class="grid-card">
+                    <h3 style="font-size: 2rem; margin-bottom: 1rem;">The Supply Chain</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;">How systems—medical, legal, economic—intersect with intimate life.</p>
+                    <span style="color: var(--gold); font-family: var(--font-mono); font-size: 0.75rem;">View Series &rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Section 3: Manifesto Snippet -->
+    <section class="cinematic-section" style="background-image: url('../assets/images/series/35178b84-126e-4c77-ad05-54f6ef0348ac_0.png'); border-top: 1px solid rgba(255,255,255,0.1);">
+        <div class="content-layer">
+            <h2 style="font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 3rem; font-style: italic;">"We do not flinch at the consequences. We look them in the eye and name them."</h2>
+            <a href="manifesto.html" style="font-family: var(--font-mono); color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.85rem; padding: 1rem 2rem; border: 1px solid var(--gold); transition: background 0.3s; background: rgba(200, 168, 76, 0.1);">Read the Manifesto</a>
+        </div>
+    </section>
+
+    <footer>
+        <h2 style="font-family: var(--font-serif-heading); font-style: italic; color: var(--gold);">Powerhouse Novelas</h2>
+        <div style="font-family: var(--font-sans); color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.75rem;">Built by Monica Craiyon</div>
+    </footer>
+
+    <script>
+        // Simple hover effect augmentation
+        document.querySelectorAll('.grid-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const bg = card.closest('.cinematic-section');
+                bg.style.transform = 'scale(1.02)';
+                bg.style.transition = 'transform 5s ease';
+            });
+            card.addEventListener('mouseleave', () => {
+                const bg = card.closest('.cinematic-section');
+                bg.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Library — Powerhouse Novelas</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- Direction Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-header {
+            padding: 20vh 5% 10vh;
+            background: url('../assets/images/textures/d9636584-7e56-4c94-8110-3ba30e17bfcb_0.png') center/cover fixed;
+            position: relative;
+        }
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(5,5,5,0.7) 0%, var(--bg-deep) 100%);
+        }
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        .header-content h1 { font-size: clamp(4rem, 8vw, 6rem); margin-bottom: 1rem; }
+        .header-content p { font-family: var(--font-mono); color: var(--gold); text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="brand">Powerhouse Novelas</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="library.html" class="active">Library</a></li>
+            <li><a href="manifesto.html">Manifesto</a></li>
+            <li><a href="world.html">The World</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <div class="header-content">
+            <p>Vault Overview</p>
+            <h1>The Library.</h1>
+        </div>
+    </header>
+
+    <div style="max-width: 1400px; margin: 0 auto; padding: 5% 5% 10rem;">
+        
+        <!-- Row 1 -->
+        <article class="series-row">
+            <div class="series-hero">
+                <img src="../assets/images/portraits/cfbc14ba-e26c-4b98-8bbe-20b20a1ef349_0.png" alt="La Clave Character">
+            </div>
+            <div class="series-details">
+                <div class="series-meta">Flagship Series</div>
+                <h3>La Clave</h3>
+                <p>Power, desire, identity within a marriage that looks perfect from outside. What happens when the person you built your life with discovers they've been building around something they couldn't name?</p>
+                <div class="series-meta" style="color: var(--text-muted); font-size: 0.75rem;">Themes: Power &middot; Desire</div>
+            </div>
+        </article>
+
+        <!-- Row 2 -->
+        <article class="series-row">
+            <div class="series-hero">
+                <img src="../assets/images/portraits/42d598e3-f694-490f-b8d8-aa7b1ae6bb98_1.png" alt="Blood and Sugar Character">
+            </div>
+            <div class="series-details">
+                <div class="series-meta">Systemic Power</div>
+                <h3>Blood and Sugar</h3>
+                <p>Desire, addiction, and the metabolic cost of wanting. Bodies that remember what minds refuse to process.</p>
+                <div class="series-meta" style="color: var(--text-muted); font-size: 0.75rem;">Themes: Metabolism &middot; Cost</div>
+            </div>
+        </article>
+
+        <!-- Row 3 -->
+        <article class="series-row">
+            <div class="series-hero">
+                <img src="../assets/images/textures/d9636584-7e56-4c94-8110-3ba30e17bfcb_1.png" alt="San Juan-Aguilar Chronicles Abstract">
+            </div>
+            <div class="series-details">
+                <div class="series-meta">Generational Expansion</div>
+                <h3>The San Juan-Aguilar Chronicles</h3>
+                <p>Multi-generational. Power passed down like inheritance. The architecture of family loyalty and its absolute price.</p>
+                <div class="series-meta" style="color: var(--text-muted); font-size: 0.75rem;">Themes: Family &middot; Loyalty</div>
+            </div>
+        </article>
+
+        <!-- Row 4 -->
+        <article class="series-row">
+            <div class="series-hero">
+                <img src="../assets/images/heroes/a8e970ce-b860-4dab-8939-56aa77224742_2.png" alt="Erotic Architecture Room">
+            </div>
+            <div class="series-details">
+                <div class="series-meta">Standalone Collection</div>
+                <h3>The Erotic Architecture</h3>
+                <p>Standalone pieces examining how desire builds structures — physical, emotional, spatial — and what those structures reveal.</p>
+                <div class="series-meta" style="color: var(--text-muted); font-size: 0.75rem;">Themes: Space &middot; Desire</div>
+            </div>
+        </article>
+
+        <!-- Row 5 -->
+        <article class="series-row">
+            <div class="series-hero">
+                <img src="../assets/images/series/35178b84-126e-4c77-ad05-54f6ef0348ac_0.png" alt="The Supply Chain Scenes">
+            </div>
+            <div class="series-details">
+                <div class="series-meta">Systems Fiction</div>
+                <h3>The Supply Chain</h3>
+                <p>How systems — medical, legal, economic — intersect with intimate life. Structural power meeting personal power.</p>
+                <div class="series-meta" style="color: var(--text-muted); font-size: 0.75rem;">Themes: Systems &middot; Intimacy</div>
+            </div>
+        </article>
+
+    </div>
+
+    <footer>
+        <h2 style="font-family: var(--font-serif-heading); font-style: italic; color: var(--gold);">Powerhouse Novelas</h2>
+        <div style="font-family: var(--font-sans); color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase;">Built by Monica Craiyon</div>
+    </footer>
+
+</body>
+</html>
