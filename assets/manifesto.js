@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!container || !tocList) return;
 
-  fetch("../manifesto_data.json")
+  fetch("/manifesto_data.json")
     .then(res => res.json())
     .then(data => {
       renderManifesto(data);
