@@ -20,3 +20,6 @@ Thumbs.db
 .vscode/
 *.swp
 *~
+
+# MCP config (contains API keys)
+.mcp.json
